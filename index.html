@@ -419,6 +419,71 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--black);color:var(--sand);border-radius:var(--pill);font:600 11px/1 var(--inter);padding:14px 22px;opacity:0;transition:.3s var(--ease);z-index:210}
 #toast.show{opacity:1;transform:translateX(-50%)}
 
+
+/* ===== CASE STUDY STYLES ===== */
+.cs-hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px var(--gut) clamp(40px,6vw,80px);overflow:hidden}
+.cs-hero .cs-bg{position:absolute;inset:0;z-index:0}
+.cs-hero .cs-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.35) saturate(.8)}
+.cs-hero .cs-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,11,.85) 0%,rgba(11,11,11,.3) 50%,rgba(11,11,11,.5) 100%)}
+.cs-hero .cs-content{position:relative;z-index:1;max-width:1440px;margin:0 auto;width:100%}
+.cs-hero .cs-tag{display:inline-block;font:500 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;background:var(--orange);color:var(--black);padding:8px 14px;border-radius:99px;margin-bottom:20px}
+.cs-hero h1{font-family:var(--anton);font-size:clamp(3rem,9vw,8rem);text-transform:uppercase;color:var(--sand);line-height:.92;margin-bottom:16px}
+.cs-hero .cs-lead{color:var(--mut-d);font-size:clamp(15px,1.4vw,18px);max-width:50ch}
+.cs-meta{display:flex;gap:clamp(24px,4vw,60px);flex-wrap:wrap;margin-top:32px}
+.cs-meta>div{display:flex;flex-direction:column;gap:6px}
+.cs-meta .lbl{font:500 9px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d)}
+.cs-meta .val{font:700 14px/1.3 var(--inter);color:var(--sand)}
+
+.cs-section{padding:clamp(50px,7vw,100px) var(--gut);max-width:1440px;margin:0 auto}
+.cs-section .cs-label{font:500 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.cs-section h2{font-family:var(--anton);font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;line-height:.94;margin-bottom:20px}
+.cs-section p{color:var(--mut-l);font-size:clamp(15px,1.3vw,17px);line-height:1.7;max-width:60ch}
+.cs-section p+p{margin-top:14px}
+.cs-section .cs-body{max-width:720px}
+
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center}
+.cs-grid.reverse{direction:rtl}
+.cs-grid.reverse>*{direction:ltr}
+.cs-grid figure{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px rgba(11,11,11,.2)}
+.cs-grid figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.cs-grid figure:hover img{transform:scale(1.05)}
+
+.cs-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.cs-metric{background:var(--black);color:var(--sand);border-radius:var(--r);padding:clamp(24px,3vw,40px);position:relative;overflow:hidden}
+.cs-metric::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange)}
+.cs-metric .num{font-family:var(--anton);font-size:clamp(2.4rem,5vw,4rem);line-height:1}
+.cs-metric .num i{color:var(--orange);font-style:normal}
+.cs-metric p{font:500 9.5px/1.7 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut-d);margin-top:10px}
+
+.cs-quote{background:var(--bone);border-radius:var(--r);padding:clamp(30px,4vw,50px);position:relative;margin-top:40px}
+.cs-quote::before{content:"\"";position:absolute;top:20px;left:24px;font-family:var(--anton);font-size:60px;color:var(--orange);line-height:1}
+.cs-quote q{font:500 clamp(1.1rem,2.2vw,1.5rem)/1.6 var(--inter);display:block;padding-left:40px;color:var(--black)}
+.cs-quote .cs-qfoot{display:flex;align-items:center;gap:14px;margin-top:24px;padding-left:40px}
+.cs-quote .cs-qfoot img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--hair)}
+.cs-quote .cs-qfoot b{font:700 14px/1.3 var(--inter)}
+.cs-quote .cs-qfoot span{font:500 9px/1 var(--mono);letter-spacing:.14em;color:var(--mut-l);text-transform:uppercase}
+
+.cs-cta{background:var(--orange);color:var(--black);border-radius:var(--r);padding:clamp(30px,4vw,60px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:40px}
+.cs-cta h3{font-family:var(--anton);font-size:clamp(1.6rem,3.5vw,3rem);text-transform:uppercase;line-height:.94}
+.cs-cta p{font:500 13px/1.5 var(--inter);max-width:36ch;margin-top:8px;opacity:.8}
+
+.cs-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+.cs-gallery figure{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10}
+.cs-gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.cs-gallery figure:hover img{transform:scale(1.05)}
+.cs-gallery figure.wide{grid-column:1/-1;aspect-ratio:21/9}
+
+@media(max-width:1024px){
+  .cs-grid{grid-template-columns:1fr}
+  .cs-metrics{grid-template-columns:1fr}
+  .cs-hero{min-height:70vh}
+}
+@media(max-width:760px){
+  .cs-gallery{grid-template-columns:1fr}
+  .cs-gallery figure.wide{aspect-ratio:16/10}
+}
+
+
 /* Responsive */
 @media(max-width:1024px){
   .hgrid,.kgrid,.proc,.audit,.din,.fwork{grid-template-columns:1fr}
@@ -656,7 +721,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <a class="btn g rv" href="#/work" style="--d:.1s">View all work</a>
     </div>
     <div class="fwork">
-      <a class="fwcard rv" href="#/work" style="--d:0s">
+      <a class="fwcard rv" href="#/work/sunnah-grandeur" style="--d:0s">
         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=560&fit=crop&q=80" alt="Sunnah Grandeur architectural project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/900/560'">
         <div class="overlay">
           <span class="tag">ECOSYSTEM</span>
@@ -665,7 +730,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
         </div>
         <div class="fwgo">↗</div>
       </a>
-      <a class="fwcard rv" href="#/work" style="--d:.1s">
+      <a class="fwcard rv" href="#/work/harmans-trading" style="--d:.1s">
         <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&h=560&fit=crop&q=80" alt="Harmans Trading logistics" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/900/560'">
         <div class="overlay">
           <span class="tag">DELIVERED</span>
@@ -674,7 +739,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
         </div>
         <div class="fwgo">↗</div>
       </a>
-      <a class="fwcard rv" href="#/work" style="--d:.2s">
+      <a class="fwcard rv" href="#/work/salfas-bazar" style="--d:.2s">
         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&h=560&fit=crop&q=80" alt="Salfas Bazar organic food" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/900/560'">
         <div class="overlay">
           <span class="tag">DELIVERED</span>
@@ -683,7 +748,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
         </div>
         <div class="fwgo">↗</div>
       </a>
-      <a class="fwcard rv" href="#/work" style="--d:.3s">
+      <a class="fwcard rv" href="#/work/citymate-hostel" style="--d:.3s">
         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&h=560&fit=crop&q=80" alt="Citymate Hostel hospitality" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/900/560'">
         <div class="overlay">
           <span class="tag">RUNNING</span>
@@ -929,22 +994,22 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <p class="rv" style="--d:.1s">Pinned to the board. Straighten one. Full files on request.</p>
     </div>
     <div class="pcards">
-      <article class="pcard rv" style="--rr:-3deg">
+      <a class="pcard rv" href="#/work/sunnah-grandeur" style="--rr:-3deg">
         <figure><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&h=520&fit=crop&q=80" alt="Matte black architectural model" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/700/520'"></figure>
         <h3>Sunnah Grandeur</h3><p>Digital ecosystem · Web + App</p><span class="tag">ECOSYSTEM</span>
-      </article>
-      <article class="pcard rv" style="--rr:2deg;--d:.08s">
+      </a>
+      <a class="pcard rv" href="#/work/harmans-trading" style="--rr:2deg;--d:.08s">
         <figure><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=520&fit=crop&q=80" alt="Matte black shipping container on orange" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/700/520'"></figure>
         <h3>Harmans Trading</h3><p>Delivered digital project</p><span class="tag">DELIVERED</span>
-      </article>
-      <article class="pcard rv" style="--rr:-2deg;--d:.16s">
+      </a>
+      <a class="pcard rv" href="#/work/salfas-bazar" style="--rr:-2deg;--d:.16s">
         <figure><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=520&fit=crop&q=80" alt="Matte black grocery crate" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/700/520'"></figure>
         <h3>Salfas Bazar</h3><p>Organic food · Digital project</p><span class="tag">DELIVERED</span>
-      </article>
-      <article class="pcard rv" style="--rr:3deg;--d:.24s">
+      </a>
+      <a class="pcard rv" href="#/work/citymate-hostel" style="--rr:3deg;--d:.24s">
         <figure><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&h=520&fit=crop&q=80" alt="Matte black key card and door hanger" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/700/520'"></figure>
         <h3>Citymate Hostel BD</h3><p>Branding · Web · App · Mgmt</p><span class="tag">RUNNING</span>
-      </article>
+      </a>
     </div>
     <div class="dossier" id="dossier">
       <div class="dacc rv">
@@ -999,6 +1064,484 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
           </div>
         </div>
       </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ==================== CASE STUDY: SUNNAH GRANDEUR ==================== -->
+<div class="page" id="pg-work-sunnah">
+  <header class="cs-hero">
+    <div class="cs-bg">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop&q=80" alt="Sunnah Grandeur project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/1600/900'">
+    </div>
+    <div class="cs-content">
+      <span class="cs-tag">DIGITAL ECOSYSTEM</span>
+      <h1>Sunnah<br>Grandeur</h1>
+      <p class="cs-lead">A full digital ecosystem for a premium real estate and lifestyle brand — website, mobile app, backend, and brand identity built as one connected system.</p>
+      <div class="cs-meta">
+        <div><span class="lbl">CLIENT</span><span class="val">Sunnah Grandeur</span></div>
+        <div><span class="lbl">INDUSTRY</span><span class="val">Real Estate & Lifestyle</span></div>
+        <div><span class="lbl">SERVICES</span><span class="val">Web · App · Branding · Automation</span></div>
+        <div><span class="lbl">DURATION</span><span class="val">8 weeks</span></div>
+        <div><span class="lbl">YEAR</span><span class="val">2025</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-section">
+    <div class="cs-grid">
+      <div class="cs-body">
+        <span class="cs-label">01 · THE CHALLENGE</span>
+        <h2>Everything was scattered.</h2>
+        <p>Sunnah Grandeur had a vision — premium real estate, lifestyle properties, and a community-driven brand. But their digital presence was fragmented. A basic website that didn't convert. No mobile presence. Leads coming through WhatsApp with no tracking. Manual follow-ups falling through the cracks.</p>
+        <p>They needed one system where prospects could browse properties, book viewings, make enquiries, and receive automated follow-ups — all while the internal team had full visibility into the pipeline.</p>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=675&fit=crop&q=80" alt="Before state" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-grid reverse">
+      <div class="cs-body">
+        <span class="cs-label">02 · THE STRATEGY</span>
+        <h2>One ecosystem. Not three apps.</h2>
+        <p>Instead of building a website, an app, and a CRM separately, we designed one connected system. The website serves as the front door. The app handles mobile engagement. The backend powers everything behind the scenes.</p>
+        <p>We mapped the full customer journey — from first visit to property booking to post-purchase communication — and built automations at every drop-off point.</p>
+        <ul class="chips" style="margin-top:18px">
+          <li>Property listings with smart filters</li>
+          <li>Booking system with calendar sync</li>
+          <li>Lead capture with auto-segmentation</li>
+          <li>WhatsApp automation for follow-ups</li>
+          <li>Admin dashboard with analytics</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=675&fit=crop&q=80" alt="Strategy workshop" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-strategy/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">03 · THE BUILD</span>
+    <h2>What we shipped.</h2>
+    <div class="cs-gallery">
+      <figure class="wide">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Website dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash/1400/600'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&h=440&fit=crop&q=80" alt="Mobile app interface" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-mobile/700/440'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=440&fit=crop&q=80" alt="Admin panel" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-admin/700/440'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">04 · RESULTS</span>
+    <h2>Numbers that matter.</h2>
+    <div class="cs-metrics">
+      <div class="cs-metric rv">
+        <div class="num">+<span data-n="40">0</span><i>%</i></div>
+        <p>Revenue increase within 3 months of launch</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.08s">
+        <div class="num"><span data-n="3">0</span><i>x</i></div>
+        <p>Faster lead response time with automation</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.16s">
+        <div class="num"><span data-n="85">0</span><i>%</i></div>
+        <p>Reduction in manual follow-up tasks</p>
+      </div>
+    </div>
+    <div class="cs-quote rv">
+      <q>GalaxaTech built our entire digital presence from scratch. The website, the app, the backend — everything talks to each other. Revenue is up 40% since launch.</q>
+      <div class="cs-qfoot">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Rafiq Hossain" onerror="this.style.display='none'">
+        <div><b>Rafiq Hossain</b><span>Founder, Sunnah Grandeur</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">05 · TECH STACK</span>
+    <h2>Built with.</h2>
+    <ul class="chips" style="margin-top:16px">
+      <li>React</li><li>Node.js</li><li>MongoDB</li><li>AWS</li><li>WhatsApp API</li><li>Stripe</li><li>Figma</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-cta rv">
+      <div>
+        <h3>Want results like this?</h3>
+        <p>We build ecosystems — not just websites. Let's talk about your project.</p>
+      </div>
+      <a class="btn k" href="#/home/audit">Start a project →</a>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== CASE STUDY: HARMANS TRADING ==================== -->
+<div class="page" id="pg-work-harmans">
+  <header class="cs-hero">
+    <div class="cs-bg">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&h=900&fit=crop&q=80" alt="Harmans Trading project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/1600/900'">
+    </div>
+    <div class="cs-content">
+      <span class="cs-tag">DELIVERED PROJECT</span>
+      <h1>Harmans<br>Trading</h1>
+      <p class="cs-lead">A complete digital transformation for a trading company — from offline spreadsheets to a fully automated order and inventory system.</p>
+      <div class="cs-meta">
+        <div><span class="lbl">CLIENT</span><span class="val">Harmans Trading</span></div>
+        <div><span class="lbl">INDUSTRY</span><span class="val">Import / Export Trading</span></div>
+        <div><span class="lbl">SERVICES</span><span class="val">Web · Automation · CRM</span></div>
+        <div><span class="lbl">DURATION</span><span class="val">6 weeks</span></div>
+        <div><span class="lbl">YEAR</span><span class="val">2024</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-section">
+    <div class="cs-grid">
+      <div class="cs-body">
+        <span class="cs-label">01 · THE CHALLENGE</span>
+        <h2>Running on spreadsheets and phone calls.</h2>
+        <p>Harmans Trading managed hundreds of SKUs across multiple suppliers and buyers using Excel sheets and WhatsApp messages. Orders were missed. Stock levels were always wrong. Invoicing took days. The team was reactive instead of proactive.</p>
+        <p>They needed a system that could handle the full trading cycle — from purchase orders to inventory tracking to client invoicing — without hiring a tech team.</p>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&h=675&fit=crop&q=80" alt="Trading operations" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-grid reverse">
+      <div class="cs-body">
+        <span class="cs-label">02 · THE STRATEGY</span>
+        <h2>Automate the repetitive. Track everything.</h2>
+        <p>We built a custom trading portal that replaced their spreadsheet workflow. Purchase orders auto-generate from low-stock alerts. Client orders flow directly into invoicing. The CRM tracks every interaction so no lead goes cold.</p>
+        <p>The key was making it simple enough that the existing team could use it on day one — no training manuals, no complexity.</p>
+        <ul class="chips" style="margin-top:18px">
+          <li>Purchase order automation</li>
+          <li>Real-time inventory tracking</li>
+          <li>Client portal with order history</li>
+          <li>Auto-invoicing with PDF generation</li>
+          <li>Supplier management dashboard</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=900&h=675&fit=crop&q=80" alt="System design" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-trade/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">03 · THE BUILD</span>
+    <h2>What we shipped.</h2>
+    <div class="cs-gallery">
+      <figure class="wide">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Trading dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash2/1400/600'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=700&h=440&fit=crop&q=80" alt="Invoice system" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-invoice/700/440'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=440&fit=crop&q=80" alt="Inventory view" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-inventory/700/440'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">04 · RESULTS</span>
+    <h2>Numbers that matter.</h2>
+    <div class="cs-metrics">
+      <div class="cs-metric rv">
+        <div class="num"><span data-n="15">0</span><i>h</i></div>
+        <p>Saved per week through automation</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.08s">
+        <div class="num"><span data-n="100">0</span><i>%</i></div>
+        <p>Order accuracy after system launch</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.16s">
+        <div class="num"><span data-n="50">0</span><i>%</i></div>
+        <p>Faster invoice generation</p>
+      </div>
+    </div>
+    <div class="cs-quote rv">
+      <q>They don't just build websites — they build systems that make money. The automation alone saves us 15 hours a week.</q>
+      <div class="cs-qfoot">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Tariq Islam" onerror="this.style.display='none'">
+        <div><b>Tariq Islam</b><span>Director, Harmans Trading</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">05 · TECH STACK</span>
+    <h2>Built with.</h2>
+    <ul class="chips" style="margin-top:16px">
+      <li>Next.js</li><li>PostgreSQL</li><li>Prisma</li><li>Vercel</li><li>WhatsApp API</li><li>PDFKit</li><li>Tailwind</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-cta rv">
+      <div>
+        <h3>Want results like this?</h3>
+        <p>We build systems that make money. Let's talk about your project.</p>
+      </div>
+      <a class="btn k" href="#/home/audit">Start a project →</a>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== CASE STUDY: SALFAS BAZAR ==================== -->
+<div class="page" id="pg-work-salfas">
+  <header class="cs-hero">
+    <div class="cs-bg">
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600&h=900&fit=crop&q=80" alt="Salfas Bazar project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/1600/900'">
+    </div>
+    <div class="cs-content">
+      <span class="cs-tag">DELIVERED PROJECT</span>
+      <h1>Salfas<br>Bazar</h1>
+      <p class="cs-lead">An e-commerce presence for an organic food business — built to sell, not just exist. From zero online sales to a fully operational digital store in 18 days.</p>
+      <div class="cs-meta">
+        <div><span class="lbl">CLIENT</span><span class="val">Salfas Bazar</span></div>
+        <div><span class="lbl">INDUSTRY</span><span class="val">Organic Food & Grocery</span></div>
+        <div><span class="lbl">SERVICES</span><span class="val">E-commerce · Branding · Content</span></div>
+        <div><span class="lbl">DURATION</span><span class="val">18 days</span></div>
+        <div><span class="lbl">YEAR</span><span class="val">2024</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-section">
+    <div class="cs-grid">
+      <div class="cs-body">
+        <span class="cs-label">01 · THE CHALLENGE</span>
+        <h2>Great products. Zero online presence.</h2>
+        <p>Salfas Bazar had loyal customers at their physical store and farmer's market stalls. But they had no way to reach new customers online. No website. No ordering system. Instagram posts with "DM to order" that went unanswered half the time.</p>
+        <p>They needed an e-commerce site that felt as fresh and trustworthy as their organic products — fast, because the seasonal harvest window was closing.</p>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&h=675&fit=crop&q=80" alt="Organic products" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-grid reverse">
+      <div class="cs-body">
+        <span class="cs-label">02 · THE STRATEGY</span>
+        <h2>Sell the story. Make ordering effortless.</h2>
+        <p>We built a clean, fast e-commerce site that puts the products front and center. Every item has a story — farm origin, harvest date, health benefits. The checkout is two clicks. Payment options include bKash, Nagad, and card.</p>
+        <p>We also set up automated order confirmations and delivery tracking so customers always know where their order is.</p>
+        <ul class="chips" style="margin-top:18px">
+          <li>Product catalog with filtering</li>
+          <li>Fast checkout (2-click)</li>
+          <li>bKash / Nagad / Card payments</li>
+          <li>Order tracking system</li>
+          <li>SEO-optimized product pages</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=900&h=675&fit=crop&q=80" alt="Food photography" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-food/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">03 · THE BUILD</span>
+    <h2>What we shipped.</h2>
+    <div class="cs-gallery">
+      <figure class="wide">
+        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=1400&h=600&fit=crop&q=80" alt="Store homepage" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-store/1400/600'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=440&fit=crop&q=80" alt="Product page" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-product/700/440'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=440&fit=crop&q=80" alt="Checkout flow" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-checkout/700/440'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">04 · RESULTS</span>
+    <h2>Numbers that matter.</h2>
+    <div class="cs-metrics">
+      <div class="cs-metric rv">
+        <div class="num"><span data-n="18">0</span><i>d</i></div>
+        <p>From kickoff to live store</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.08s">
+        <div class="num"><span data-n="250">0</span><i>+</i></div>
+        <p>Online orders in first month</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.16s">
+        <div class="num"><span data-n="3">0</span><i>x</i></div>
+        <p>Return customer rate</p>
+      </div>
+    </div>
+    <div class="cs-quote rv">
+      <q>Fast, mechanical, no drama. They delivered our e-commerce site in 18 days. Payment at milestones meant zero risk for us.</q>
+      <div class="cs-qfoot">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Farhana Ahmed" onerror="this.style.display='none'">
+        <div><b>Farhana Ahmed</b><span>Owner, Salfas Bazar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">05 · TECH STACK</span>
+    <h2>Built with.</h2>
+    <ul class="chips" style="margin-top:16px">
+      <li>Shopify</li><li>Custom Theme</li><li>Liquid</li><li>JavaScript</li><li>bKash API</li><li>Meta Pixel</li><li>Google Analytics</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-cta rv">
+      <div>
+        <h3>Want results like this?</h3>
+        <p>We build stores that sell. Let's talk about your project.</p>
+      </div>
+      <a class="btn k" href="#/home/audit">Start a project →</a>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== CASE STUDY: CITYMATE HOSTEL BD ==================== -->
+<div class="page" id="pg-work-citymate">
+  <header class="cs-hero">
+    <div class="cs-bg">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&h=900&fit=crop&q=80" alt="Citymate Hostel project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/1600/900'">
+    </div>
+    <div class="cs-content">
+      <span class="cs-tag">RUNNING PROJECT</span>
+      <h1>Citymate<br>Hostel BD</h1>
+      <p class="cs-lead">A complete digital ecosystem for a hostel chain — branding, website, mobile app, and management system. One team. One build. One invoice.</p>
+      <div class="cs-meta">
+        <div><span class="lbl">CLIENT</span><span class="val">Citymate Hostel BD</span></div>
+        <div><span class="lbl">INDUSTRY</span><span class="val">Hospitality & Accommodation</span></div>
+        <div><span class="lbl">SERVICES</span><span class="val">Branding · Web · App · Mgmt</span></div>
+        <div><span class="lbl">DURATION</span><span class="val">12 weeks</span></div>
+        <div><span class="lbl">YEAR</span><span class="val">2025</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="cs-section">
+    <div class="cs-grid">
+      <div class="cs-body">
+        <span class="cs-label">01 · THE CHALLENGE</span>
+        <h2>Running a hostel on notebooks and phone calls.</h2>
+        <p>Citymate Hostel was growing — multiple locations, increasing bookings, expanding staff. But everything was manual. Room availability tracked in notebooks. Bookings taken over phone. Payments collected in cash with no record. Staff schedules on WhatsApp.</p>
+        <p>They needed a system that could handle bookings, payments, room management, staff scheduling, and guest communication — all in one place, accessible from anywhere.</p>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&h=675&fit=crop&q=80" alt="Hostel interior" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-grid reverse">
+      <div class="cs-body">
+        <span class="cs-label">02 · THE STRATEGY</span>
+        <h2>One platform for guests. One dashboard for staff.</h2>
+        <p>We built a three-part system: a guest-facing website for bookings and payments, a mobile app for guests to manage their stays, and an admin dashboard for the hostel team to manage rooms, staff, and finances.</p>
+        <p>Every booking auto-syncs across all three. Guests get WhatsApp confirmations and check-in codes. Staff see real-time room status. Management gets daily revenue reports.</p>
+        <ul class="chips" style="margin-top:18px">
+          <li>Online booking with real-time availability</li>
+          <li>Mobile app for guests</li>
+          <li>Admin dashboard for staff</li>
+          <li>Automated WhatsApp confirmations</li>
+          <li>Digital check-in / check-out</li>
+          <li>Revenue analytics & reporting</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&h=675&fit=crop&q=80" alt="Team meeting" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-meeting/900/675'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">03 · THE BUILD</span>
+    <h2>What we shipped.</h2>
+    <div class="cs-gallery">
+      <figure class="wide">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Management dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash3/1400/600'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&h=440&fit=crop&q=80" alt="Guest mobile app" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-app/700/440'">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=440&fit=crop&q=80" alt="Booking website" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-booking/700/440'">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">04 · RESULTS</span>
+    <h2>Numbers that matter.</h2>
+    <div class="cs-metrics">
+      <div class="cs-metric rv">
+        <div class="num"><span data-n="60">0</span><i>%</i></div>
+        <p>Increase in direct bookings (vs OTA commissions)</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.08s">
+        <div class="num"><span data-n="90">0</span><i>%</i></div>
+        <p>Reduction in manual check-in time</p>
+      </div>
+      <div class="cs-metric rv" style="--d:.16s">
+        <div class="num"><span data-n="24">0</span><i>/7</i></div>
+        <p>Automated booking system running</p>
+      </div>
+    </div>
+    <div class="cs-quote rv">
+      <q>From branding to a full hostel management app — one team, one invoice, one point of contact. That's how agencies should work.</q>
+      <div class="cs-qfoot">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Mohsin Khan" onerror="this.style.display='none'">
+        <div><b>Mohsin Khan</b><span>CEO, Citymate Hostel BD</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-label">05 · TECH STACK</span>
+    <h2>Built with.</h2>
+    <ul class="chips" style="margin-top:16px">
+      <li>React</li><li>React Native</li><li>Node.js</li><li>PostgreSQL</li><li>Redis</li><li>AWS</li><li>WhatsApp API</li><li>Stripe</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-cta rv">
+      <div>
+        <h3>Want results like this?</h3>
+        <p>We build ecosystems — not just websites. Let's talk about your project.</p>
+      </div>
+      <a class="btn k" href="#/home/audit">Start a project →</a>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
     </div>
   </section>
 </div>
@@ -1298,15 +1841,28 @@ if (FINE && !RM) {
 const PAGES = {
   home: 'pg-home', services: 'pg-services', products: 'pg-products',
   work: 'pg-work', sisters: 'pg-sisters', store: 'pg-store',
-  brand: 'pg-brand', notes: 'pg-notes', legal: 'pg-legal'
+  brand: 'pg-brand', notes: 'pg-notes', legal: 'pg-legal',
+  'work-sunnah': 'pg-work-sunnah', 'work-harmans': 'pg-work-harmans',
+  'work-salfas': 'pg-work-salfas', 'work-citymate': 'pg-work-citymate'
+};
+const CS_ROUTES = {
+  'sunnah-grandeur': 'work-sunnah',
+  'harmans-trading': 'work-harmans',
+  'salfas-bazar': 'work-salfas',
+  'citymate-hostel': 'work-citymate'
 };
 const backBtn = document.getElementById('backBtn'), crumb = document.getElementById('crumb');
 backBtn.addEventListener('click', () => { if (history.length > 1) history.back(); else location.hash = '#/home'; });
 
 function route() {
   const h = (location.hash || '#/home').replace(/^#\/?/, '');
-  const [raw, anchor] = h.split('/');
-  const path = PAGES[raw] ? raw : 'home';
+  const parts = h.split('/');
+  const raw = parts[0];
+  const sub = parts[1] || '';
+  const anchor = parts[2] || '';
+  let path = PAGES[raw] ? raw : 'home';
+  if (raw === 'work' && CS_ROUTES[sub]) { path = CS_ROUTES[sub]; }
+  if (!PAGES[path]) path = 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(PAGES[path]).classList.add('active');
   document.querySelectorAll('.nlinks a[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === path));
