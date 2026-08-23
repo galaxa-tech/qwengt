@@ -484,6 +484,48 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 }
 
 
+
+/* ===== CONTACT PAGE ===== */
+.con-hero{padding:140px var(--gut) clamp(40px,6vw,80px);min-height:60vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.con-hero::before{content:"";position:absolute;inset:0;background:var(--black);z-index:0}
+.con-hero::after{content:"";position:absolute;right:-10%;top:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,6,.2),transparent 60%);z-index:0}
+.con-hero .con-content{position:relative;z-index:1;max-width:1440px;margin:0 auto;width:100%}
+.con-hero h1{font-family:var(--anton);font-size:clamp(3.5rem,10vw,9rem);text-transform:uppercase;color:var(--sand);line-height:.92}
+.con-hero h1 i{color:var(--orange);font-style:normal}
+.con-hero .con-lead{color:var(--mut-d);font-size:clamp(15px,1.4vw,18px);max-width:48ch;margin-top:18px}
+.con-hero .con-meta{display:flex;gap:clamp(24px,4vw,60px);flex-wrap:wrap;margin-top:32px}
+.con-hero .con-meta>div{display:flex;flex-direction:column;gap:6px}
+.con-hero .con-meta .lbl{font:500 9px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d)}
+.con-hero .con-meta .val{font:700 14px/1.3 var(--inter);color:var(--sand)}
+
+.con-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+.con-card{background:#fff;border-radius:var(--r);padding:32px;border:1px solid var(--hair);display:flex;flex-direction:column;gap:16px;transition:transform .3s var(--ease),box-shadow .3s;position:relative;overflow:hidden}
+.con-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .4s var(--ease);transform-origin:left}
+.con-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(11,11,11,.12)}
+.con-card:hover::before{transform:scaleX(1)}
+.con-card .icon{width:52px;height:52px;border-radius:14px;background:var(--black);color:var(--sand);display:grid;place-items:center;font-size:20px}
+.con-card h3{font-family:var(--anton);font-size:clamp(1.3rem,2.4vw,1.8rem);text-transform:uppercase}
+.con-card p{color:var(--mut-l);font-size:14px;line-height:1.6}
+.con-card .con-link{font:700 12px/1 var(--inter);letter-spacing:.06em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;transition:gap .2s}
+.con-link:hover{gap:14px}
+.con-card.wide{grid-column:1/-1}
+.con-card.dark{background:var(--black);color:var(--sand);border-color:transparent}
+.con-card.dark p{color:var(--mut-d)}
+.con-card.dark .icon{background:var(--orange);color:var(--black)}
+
+.con-faq{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.faq-item{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--hair);box-shadow:0 8px 30px rgba(11,11,11,.06)}
+.faq-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;text-align:left;font:700 15px/1.4 var(--inter)}
+.faq-head .pm{font-family:var(--anton);font-size:20px;transition:transform .3s;color:var(--orange)}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-body>div{padding:0 24px 20px;color:var(--mut-l);font-size:14.5px;line-height:1.7;max-width:60ch}
+
+@media(max-width:1024px){
+  .con-grid{grid-template-columns:1fr}
+  .con-card.wide{grid-column:1}
+}
+
 /* Responsive */
 @media(max-width:1024px){
   .hgrid,.kgrid,.proc,.audit,.din,.fwork{grid-template-columns:1fr}
@@ -540,6 +582,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <a href="#/products" data-nav="products">Products</a>
     <a href="#/store" data-nav="store">Store</a>
     <a href="#/brand" data-nav="brand">Brand</a>
+    <a href="#/contact" data-nav="contact">Contact</a>
   </div>
   <div class="nacts">
     <span class="ndot"><i></i>AGENTS ACTIVE</span>
@@ -559,6 +602,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
   <a href="#/brand">Brand</a>
   <a href="#/notes">Notes</a>
   <a href="#/home/audit">Free audit</a>
+  <a href="#/contact">Contact</a>
   <a href="#/legal">Legal</a>
   <p class="mono">mail.galaxatech@gmail.com · +880 1824-888701</p>
 </div>
@@ -1546,6 +1590,119 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
   </section>
 </div>
 
+
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="pg-contact">
+  <header class="con-hero">
+    <div class="con-content">
+      <span class="kick dk rv"><i></i>11 · CONTACT</span>
+      <h1 class="rv" style="margin-top:16px">Let's<br><i>talk.</i></h1>
+      <p class="con-lead rv" style="--d:.1s">No forms to fill twice. No waiting three days for a reply. Pick the path that fits you — we respond on all of them.</p>
+      <div class="con-meta rv" style="--d:.15s">
+        <div><span class="lbl">EMAIL</span><span class="val">mail.galaxatech@gmail.com</span></div>
+        <div><span class="lbl">WHATSAPP</span><span class="val">+880 1824-888701</span></div>
+        <div><span class="lbl">RESPONSE TIME</span><span class="val">Under 4 hours</span></div>
+        <div><span class="lbl">HOURS</span><span class="val">Sat–Thu · 9:00–21:00 BDT</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>PICK YOUR PATH</span>
+        <h2 class="display rv" style="margin-top:16px">Four ways in.<br>One team answering.</h2>
+      </div>
+    </div>
+    <div class="con-grid">
+      <a class="con-card rv" href="https://wa.me/8801824888701?text=Hi%20GalaxaTech%20—%20I%20want%20to%20start%20a%20project" target="_blank" rel="noopener">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>The fastest way. Send a message, get a reply in under 4 hours. Share files, voice notes, screenshots — whatever works.</p>
+        <span class="con-link">Message now →</span>
+      </a>
+
+      <a class="con-card rv" href="mailto:mail.galaxatech@gmail.com?subject=Project%20enquiry%20—%20GalaxaTech" style="--d:.06s">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Email</h3>
+        <p>For detailed briefs, RFPs, or if you prefer written communication. We read every email and reply with a custom quotation.</p>
+        <span class="con-link">Send email →</span>
+      </a>
+
+      <a class="con-card rv" href="#/home/audit" style="--d:.12s">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <h3>Free Audit</h3>
+        <p>Not sure what you need? We review your website and social pages, then send plain, actionable findings. No obligation.</p>
+        <span class="con-link">Request audit →</span>
+      </a>
+
+      <div class="con-card dark rv" style="--d:.18s">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Book a Call</h3>
+        <p>Prefer a voice conversation? Pick a 20-minute slot that works for you. We'll confirm within the hour.</p>
+        <span class="con-link" style="color:var(--mut-d)">Coming soon — use WhatsApp for now</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>FAQ</span>
+        <h2 class="display rv" style="margin-top:16px">Common questions.</h2>
+      </div>
+    </div>
+    <div class="con-faq">
+      <div class="faq-item rv">
+        <button class="faq-head"><span>How much does a typical project cost?</span><span class="pm">+</span></button>
+        <div class="faq-body"><div>Every project gets a custom quotation based on scope. Most website projects start at $1,500–$3,000. Ecosystem builds (web + app + automation) typically range from $5,000–$15,000. We break it into 3 milestone payments so you never pay everything upfront.</div></div>
+      </div>
+      <div class="faq-item rv" style="--d:.06s">
+        <button class="faq-head"><span>How long does a project take?</span><span class="pm">+</span></button>
+        <div class="faq-body"><div>A focused website takes 2–4 weeks. A full digital ecosystem (web + app + backend) takes 6–12 weeks. We set milestones at the start and hit them. No surprises.</div></div>
+      </div>
+      <div class="faq-item rv" style="--d:.12s">
+        <button class="faq-head"><span>Do you work with international clients?</span><span class="pm">+</span></button>
+        <div class="faq-body"><div>Yes. We currently serve clients in the USA, UK, UAE, Pakistan, India, and Bangladesh. All communication is in English. Payments accepted in BDT and USD.</div></div>
+      </div>
+      <div class="faq-item rv" style="--d:.18s">
+        <button class="faq-head"><span>What happens after the project is delivered?</span><span class="pm">+</span></button>
+        <div class="faq-body"><div>Every project includes a complimentary support window after launch. After that, you can opt into ongoing maintenance, marketing, or automation services. We're built for long-term relationships, not one-off handovers.</div></div>
+      </div>
+      <div class="faq-item rv" style="--d:.24s">
+        <button class="faq-head"><span>Can I see examples of your work?</span><span class="pm">+</span></button>
+        <div class="faq-body"><div>Absolutely. Check our <a href="#/work" style="color:var(--orange);border-bottom:1px solid var(--orange)">work page</a> for full case studies with metrics, process breakdowns, and client testimonials. We can also share detailed case files on request.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="audit rv">
+      <div>
+        <h2 class="display">Free<br>audit.</h2>
+        <p class="voice">Your traffic is fine. Your conversion isn't. Let's find the leaks.</p>
+        <p class="sub">We review your website and social pages, then send plain, actionable findings. No obligation. No hype.</p>
+      </div>
+      <form class="aform" id="auditForm2">
+        <label>Name *<input required name="name" placeholder="Your name"></label>
+        <label>Business *<input required name="biz" placeholder="Company / brand"></label>
+        <label>Website *<input required name="site" type="url" placeholder="https://…"></label>
+        <label>Goal<select name="goal"><option>More leads</option><option>More sales</option><option>Better website</option><option>Automation</option></select></label>
+        <button class="btn k" type="submit">Send via WhatsApp →</button>
+        <p class="alt">or <a href="mailto:mail.galaxatech@gmail.com?subject=Free%20Audit">email instead</a></p>
+      </form>
+    </div>
+  </section>
+</div>
+
 <!-- ==================== SISTERS ==================== -->
 <div class="page" id="pg-sisters">
   <section class="sec">
@@ -1773,7 +1930,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 <footer>
   <div class="flinks">
     <a href="#/home">HOME</a><a href="#/services">SERVICES</a><a href="#/work">WORK</a><a href="#/products">PRODUCTS</a>
-    <a href="#/sisters">SISTERS</a><a href="#/store">STORE</a><a href="#/brand">BRAND</a><a href="#/notes">NOTES</a><a href="#/legal">LEGAL</a>
+    <a href="#/sisters">SISTERS</a><a href="#/store">STORE</a><a href="#/brand">BRAND</a><a href="#/notes">NOTES</a><a href="#/contact">CONTACT</a><a href="#/legal">LEGAL</a>
   </div>
   <div class="wordmark">GALAXA<i>TECH</i></div>
   <div class="fgrid">
@@ -1843,7 +2000,8 @@ const PAGES = {
   work: 'pg-work', sisters: 'pg-sisters', store: 'pg-store',
   brand: 'pg-brand', notes: 'pg-notes', legal: 'pg-legal',
   'work-sunnah': 'pg-work-sunnah', 'work-harmans': 'pg-work-harmans',
-  'work-salfas': 'pg-work-salfas', 'work-citymate': 'pg-work-citymate'
+  'work-salfas': 'pg-work-salfas', 'work-citymate': 'pg-work-citymate',
+  contact: 'pg-contact'
 };
 const CS_ROUTES = {
   'sunnah-grandeur': 'work-sunnah',
@@ -1973,6 +2131,14 @@ addEventListener('scroll', () => {
   }
 }, { passive: true });
 
+/* FAQ accordion */
+document.querySelectorAll('.faq-head').forEach(h => h.addEventListener('click', () => {
+  const item = h.closest('.faq-item'), body = item.querySelector('.faq-body'), open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(o => { if (o !== item) { o.classList.remove('open'); o.querySelector('.faq-body').style.maxHeight = '0px'; } });
+  item.classList.toggle('open', !open);
+  body.style.maxHeight = !open ? body.scrollHeight + 'px' : '0px';
+}));
+
 /* Dossier accordion */
 document.querySelectorAll('.dhead').forEach(h => h.addEventListener('click', () => {
   const item = h.closest('.dacc'), body = item.querySelector('.dbody'), open = item.classList.contains('open');
@@ -1982,6 +2148,17 @@ document.querySelectorAll('.dhead').forEach(h => h.addEventListener('click', () 
 }));
 
 /* Audit form */
+document.getElementById('auditForm2')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const msg = `FREE AUDIT REQUEST — GalaxaTech
+Name: ${f.get('name')}
+Business: ${f.get('biz')}
+Website: ${f.get('site')}
+Goal: ${f.get('goal')}`;
+  window.open('https://wa.me/8801824888701?text=' + encodeURIComponent(msg), '_blank');
+});
+
 document.getElementById('auditForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
