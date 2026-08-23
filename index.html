@@ -8,6 +8,7 @@
 <meta property="og:title" content="GALAXATECH — AI Digital Agency">
 <meta property="og:description" content="We build, grow, automate and manage digital ecosystems. Strategy that drives growth.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop">
 <link rel="icon" id="favicon" href="img/mark-light.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,26 +23,48 @@ body{background:var(--sand);color:var(--black);font:400 16px/1.6 var(--inter);-w
 img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}ul{list-style:none}
 .display{font-family:var(--anton);text-transform:uppercase;line-height:.94}
 .mono{font:500 10px/1.6 var(--mono);letter-spacing:.18em;text-transform:uppercase}
-body::before{content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr 6s steps(6) infinite}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;z-index:999;background:var(--black);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .8s var(--ease),visibility .8s}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.plogo{font-family:var(--anton);font-size:clamp(2rem,6vw,4rem);color:var(--sand);letter-spacing:.05em}
+.plogo i{color:var(--orange);font-style:normal}
+.pline{width:min(200px,60vw);height:2px;background:rgba(242,236,230,.15);border-radius:99px;overflow:hidden}
+.pline i{display:block;height:100%;width:0;background:var(--orange);animation:plfill 1.4s var(--ease) forwards}
+@keyframes plfill{to{width:100%}}
+
+/* Grain */
+body::before{content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr 6s steps(6) infinite}
 @keyframes gr{0%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-5%)}75%{transform:translate(-3%,4%)}100%{transform:translate(0,0)}}
+
+/* Progress bar */
 #prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);width:0;z-index:120}
+
+/* Custom cursor */
 #cur,#curR{position:fixed;top:0;left:0;pointer-events:none;z-index:200;border-radius:50%;display:none}
 #cur{width:8px;height:8px;background:var(--orange);margin:-4px}
 #curR{width:36px;height:36px;margin:-18px;border:1px solid rgba(11,11,11,.35);transition:.25s}
 body.fine #cur,body.fine #curR{display:block}body.fine,body.fine a,body.fine button{cursor:none}
 #curR.big{width:64px;height:64px;margin:-32px;border-color:var(--orange)}
-.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+
+/* Reveal animations */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
 .lm{display:block;overflow:hidden}
-.lm>span{display:block;transform:translateY(112%);transition:transform .9s var(--ease);transition-delay:var(--d,0s)}
+.lm>span{display:block;transform:translateY(112%);transition:transform 1s var(--ease);transition-delay:var(--d,0s)}
 .lm.in>span{transform:none}
 .wd{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(14px);transition:.7s var(--ease);transition-delay:var(--d,0s)}
 .wd.in{opacity:1;filter:blur(0);transform:none}
-/* nav */
-.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;width:min(1120px,calc(100% - 18px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 16px;border-radius:var(--pill);background:rgba(242,236,230,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.55);box-shadow:0 18px 50px rgba(11,11,11,.16)}
+.scale-in{opacity:0;transform:scale(.92);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.scale-in.in{opacity:1;transform:scale(1)}
+
+/* Navigation */
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;width:min(1120px,calc(100% - 18px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 16px;border-radius:var(--pill);background:rgba(242,236,230,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.6);box-shadow:0 18px 50px rgba(11,11,11,.14);transition:background .3s,border-color .3s}
+.nav.scrolled{background:rgba(242,236,230,.92);border-color:rgba(255,255,255,.85)}
 .nleft{display:flex;align-items:center;gap:10px;min-width:0}
 .nbrand{display:flex;align-items:center;gap:10px}
-.nbrand .mk{width:36px;height:36px;border-radius:12px;background:var(--black);color:var(--sand);display:grid;place-items:center;font-family:var(--anton);font-size:13px;flex:0 0 auto}
+.nbrand .mk{width:36px;height:36px;border-radius:12px;background:var(--black);color:var(--sand);display:grid;place-items:center;font-family:var(--anton);font-size:13px;flex:0 0 auto;transition:transform .3s var(--ease)}
+.nbrand:hover .mk{transform:rotate(-8deg) scale(1.05)}
 .nbrand b{font:800 14px/1 var(--inter);letter-spacing:.05em}
 .nbrand em{display:block;font:500 7.5px/1.6 var(--mono);letter-spacing:.26em;color:var(--orange);font-style:normal}
 .crumb{font:500 9px/1 var(--mono);letter-spacing:.2em;color:var(--mut-l);border-left:1px solid var(--hair);padding-left:12px;white-space:nowrap}
@@ -59,8 +82,9 @@ body.fine #cur,body.fine #curR{display:block}body.fine,body.fine a,body.fine but
 .ncirc.g{background:rgba(11,11,11,.07)}
 .ncirc.g:hover{background:rgba(11,11,11,.14)}
 .burger{display:none}
-/* sheet popup */
-.sheet{position:fixed;inset:0;z-index:130;background:rgba(11,11,11,.92);backdrop-filter:blur(12px);color:var(--sand);display:flex;flex-direction:column;justify-content:center;padding:30px;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease)}
+
+/* Sheet popup */
+.sheet{position:fixed;inset:0;z-index:130;background:rgba(11,11,11,.94);backdrop-filter:blur(14px);color:var(--sand);display:flex;flex-direction:column;justify-content:center;padding:30px;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease)}
 .sheet.open{clip-path:inset(0)}
 .sheet a{font-family:var(--anton);font-size:clamp(1.8rem,8vw,3.4rem);text-transform:uppercase;padding:6px 0;opacity:0;transform:translateY(16px);transition:.4s var(--ease)}
 .sheet.open a{opacity:1;transform:none}
@@ -69,7 +93,8 @@ body.fine #cur,body.fine #curR{display:block}body.fine,body.fine a,body.fine but
 .sheetx{position:absolute;top:20px;right:22px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,236,230,.3);color:var(--sand);display:grid;place-items:center;font-size:16px;transition:.2s}
 .sheetx:hover{background:var(--orange);border-color:var(--orange);color:var(--black)}
 body.lock{overflow:hidden}
-/* shared */
+
+/* Shared components */
 .kick{display:inline-flex;align-items:center;gap:10px;border-radius:var(--pill);padding:9px 16px;background:var(--glass-l);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);font:500 9px/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut-l)}
 .kick i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pul 2s infinite}
 .kick.dk{background:rgba(242,236,230,.08);border-color:rgba(242,236,230,.2);color:var(--mut-d)}
@@ -93,9 +118,10 @@ body.lock{overflow:hidden}
 .chips li{font:500 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:99px;padding:8px 12px;opacity:.8}
 .go{width:48px;height:48px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:.25s var(--ease);flex:0 0 auto}
 .go:hover{background:var(--black);color:var(--orange);transform:rotate(45deg)}
-/* hero */
-.hero{padding:110px var(--gut) 0;position:relative}
-.hero .ghost{position:absolute;right:-6%;top:6%;width:min(46vw,640px);opacity:.06;pointer-events:none;transform:rotate(-8deg)}
+
+/* Hero */
+.hero{padding:110px var(--gut) 0;position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.hero .ghost{position:absolute;right:-6%;top:6%;width:min(46vw,640px);opacity:.05;pointer-events:none;transform:rotate(-8deg)}
 .hgrid{max-width:1440px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,3vw,60px);align-items:center}
 .hero h1{font-size:clamp(3rem,7.2vw,7rem);margin:22px 0 18px}
 .hero h1 .o{color:var(--orange)}
@@ -104,11 +130,13 @@ body.lock{overflow:hidden}
 .micro{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font:500 9.5px/1.6 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut-l)}
 .micro b{color:var(--black)}
 .hright{position:relative}
-.himg{border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.3;box-shadow:0 40px 90px rgba(11,11,11,.28)}
+.himg{border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.3;box-shadow:0 40px 90px rgba(11,11,11,.28);position:relative}
+.himg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(11,11,11,.25) 100%);pointer-events:none}
 .himg img{width:100%;height:100%;object-fit:cover;animation:kb 16s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.1) translate(-2%,2%)}}
 .himg img.fb{filter:grayscale(1) contrast(1.15) brightness(.9)}
-.pulse{position:absolute;left:-8%;bottom:8%;width:min(300px,86%);border-radius:20px;padding:16px 18px;background:rgba(11,11,11,.55);backdrop-filter:blur(16px);border:1px solid rgba(242,236,230,.22);color:var(--sand);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.pulse{position:absolute;left:-8%;bottom:8%;width:min(300px,86%);border-radius:20px;padding:16px 18px;background:rgba(11,11,11,.6);backdrop-filter:blur(16px);border:1px solid rgba(242,236,230,.22);color:var(--sand);box-shadow:0 30px 70px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
+.pulse:hover{transform:translateY(-4px)}
 .pulse .t{display:flex;justify-content:space-between;align-items:center;font:500 9px/1 var(--mono);letter-spacing:.2em;color:var(--mut-d);text-transform:uppercase}
 .pulse .t i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pul 1.6s infinite}
 .pulse .big{font-family:var(--anton);font-size:30px;margin:10px 0 8px}
@@ -119,17 +147,35 @@ body.lock{overflow:hidden}
 .pulse .ms{display:flex;gap:6px;margin-top:10px}
 .pulse .ms span{font:500 8px/1 var(--mono);letter-spacing:.12em;border-radius:99px;padding:6px 9px;border:1px solid rgba(242,236,230,.25);color:var(--mut-d)}
 .pulse .ms span.hot{background:var(--orange);border-color:var(--orange);color:var(--black)}
-.stick{position:absolute;right:-4%;top:-4%;border-radius:16px;padding:12px 16px;background:rgba(242,236,230,.5);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.6);transform:rotate(6deg);font:500 9px/1.7 var(--mono);letter-spacing:.18em;text-transform:uppercase;box-shadow:0 16px 40px rgba(11,11,11,.18)}
+.stick{position:absolute;right:-4%;top:-4%;border-radius:16px;padding:12px 16px;background:rgba(242,236,230,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.6);transform:rotate(6deg);font:500 9px/1.7 var(--mono);letter-spacing:.18em;text-transform:uppercase;box-shadow:0 16px 40px rgba(11,11,11,.18);z-index:3}
 .stick b{color:var(--orange)}
+
+/* Marquee band */
 .band{margin:60px var(--gut) 0;background:var(--orange);color:var(--black);border-radius:var(--r);overflow:hidden;box-shadow:0 24px 60px rgba(255,77,6,.3)}
 .mq{display:flex;width:max-content;animation:tick 22s linear infinite}
 .mq span{font-family:var(--anton);font-size:clamp(1.1rem,2.4vw,1.7rem);text-transform:uppercase;padding:18px 0;white-space:nowrap}
 .mq em{font-style:normal;padding:0 22px}
 @keyframes tick{to{transform:translateX(-50%)}}
+
+/* Trust bar */
+.trust{padding:clamp(40px,5vw,70px) var(--gut);max-width:1440px;margin:0 auto}
+.trust-label{font:500 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mut-l);text-align:center;margin-bottom:28px}
+.tmarquee{overflow:hidden;position:relative}
+.tmarquee::before,.tmarquee::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.tmarquee::before{left:0;background:linear-gradient(90deg,var(--sand),transparent)}
+.tmarquee::after{right:0;background:linear-gradient(-90deg,var(--sand),transparent)}
+.ttrack{display:flex;width:max-content;animation:tmarquee 30s linear infinite;gap:60px;align-items:center}
+.ttrack span{font-family:var(--anton);font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase;color:var(--hair);white-space:nowrap;opacity:.7;transition:opacity .3s}
+.ttrack span:hover{opacity:1;color:var(--black)}
+@keyframes tmarquee{to{transform:translateX(-50%)}}
+
+/* Duo cards */
 .duo{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
-.dcard{border-radius:var(--r);padding:26px;position:relative}
+.dcard{border-radius:var(--r);padding:26px;position:relative;transition:transform .3s var(--ease),box-shadow .3s}
+.dcard:hover{transform:translateY(-4px)}
 .dcard.dark{background:var(--black);color:var(--sand);display:flex;align-items:center;gap:20px}
-.dcard.dark figure{width:110px;flex:0 0 auto;border-radius:16px;overflow:hidden}
+.dcard.dark figure{width:110px;flex:0 0 auto;border-radius:16px;overflow:hidden;transition:transform .4s var(--ease)}
+.dcard.dark:hover figure{transform:scale(1.05)}
 .dcard.dark .mono{color:var(--mut-d)}
 .dcard.dark h3{font-size:clamp(1.3rem,2.4vw,2rem);margin-top:6px}
 .dcard.dark .go{position:absolute;top:20px;right:20px;color:var(--sand)}
@@ -137,13 +183,97 @@ body.lock{overflow:hidden}
 .dcard.light h3{font-size:clamp(1.2rem,2.2vw,1.7rem)}
 .dcard.light .boxhl{background:var(--black);color:var(--sand);padding:2px 12px;border-radius:10px;display:inline-block}
 .av{display:flex}
-.av span{width:44px;height:44px;border-radius:50%;background:var(--sand);border:2px solid var(--black);display:grid;place-items:center;font:700 12px var(--inter);margin-left:-10px}
+.av span{width:44px;height:44px;border-radius:50%;background:var(--sand);border:2px solid var(--black);display:grid;place-items:center;font:700 12px var(--inter);margin-left:-10px;transition:transform .2s var(--ease)}
 .av span:first-child{margin-left:0}
+.av:hover span:nth-child(1){transform:translateX(-4px)}
+.av:hover span:nth-child(2){transform:translateX(-2px)}
+.av:hover span:nth-child(4){transform:translateX(2px)}
+.av:hover span:nth-child(5){transform:translateX(4px)}
+
+/* Stats */
 .stats{background:var(--black);color:var(--sand);border-radius:var(--r);padding:clamp(28px,4vw,60px);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;overflow:hidden}
 .stats::after{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,6,.25),transparent 65%)}
+.stat{position:relative;z-index:1}
 .stat .n{font-family:var(--anton);font-size:clamp(2.6rem,5.4vw,4.6rem)}
 .stat .n i{color:var(--orange);font-style:normal}
 .stat p{font:500 9.5px/1.7 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut-d)}
+
+/* Services preview */
+.spreview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.spcard{background:#fff;border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s;border:1px solid var(--hair)}
+.spcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .4s var(--ease);transform-origin:left}
+.spcard:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(11,11,11,.12)}
+.spcard:hover::before{transform:scaleX(1)}
+.spcard .num{font:500 10px/1 var(--mono);letter-spacing:.22em;color:var(--orange);margin-bottom:14px}
+.spcard h3{font-family:var(--anton);font-size:clamp(1.2rem,2vw,1.6rem);text-transform:uppercase;margin-bottom:10px}
+.spcard p{font-size:13.5px;color:var(--mut-l);line-height:1.55;margin-bottom:18px}
+.spcard .arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);display:grid;place-items:center;transition:.25s var(--ease);font-size:14px}
+.spcard:hover .arrow{background:var(--orange);border-color:var(--orange);color:var(--black);transform:rotate(45deg)}
+
+/* Featured work */
+.fwork{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.fwcard{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;cursor:pointer}
+.fwcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.fwcard:hover img{transform:scale(1.08);filter:brightness(.7)}
+.fwcard .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;background:linear-gradient(0deg,rgba(11,11,11,.75) 0%,transparent 60%);transition:background .4s}
+.fwcard:hover .overlay{background:linear-gradient(0deg,rgba(11,11,11,.85) 0%,rgba(11,11,11,.2) 100%)}
+.fwcard .tag{display:inline-block;font:500 9px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;background:var(--orange);color:var(--black);padding:6px 10px;border-radius:99px;margin-bottom:12px;width:fit-content}
+.fwcard h3{font-family:var(--anton);font-size:clamp(1.4rem,2.6vw,2.2rem);text-transform:uppercase;color:var(--sand);margin-bottom:6px}
+.fwcard p{font:500 10px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d)}
+.fwcard .fwgo{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;background:var(--sand);color:var(--black);display:grid;place-items:center;transform:scale(0) rotate(-45deg);transition:.35s var(--ease)}
+.fwcard:hover .fwgo{transform:scale(1) rotate(0)}
+
+/* Testimonials */
+.twrap{position:relative}
+.tslider{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:20px;-webkit-overflow-scrolling:touch}
+.tslider::-webkit-scrollbar{height:3px}
+.tslider::-webkit-scrollbar-track{background:var(--hair);border-radius:99px}
+.tslider::-webkit-scrollbar-thumb{background:var(--orange);border-radius:99px}
+.tcard{flex:0 0 min(380px,85vw);scroll-snap-align:start;background:#fff;border-radius:var(--r);padding:32px;border:1px solid var(--hair);display:flex;flex-direction:column;gap:18px;transition:transform .3s var(--ease)}
+.tcard:hover{transform:translateY(-4px)}
+.tcard q{font:500 15px/1.65 var(--inter);color:var(--black);font-style:italic}
+.tcard q::before{content:"\"";color:var(--orange);font-family:var(--anton);font-size:24px;margin-right:4px;font-style:normal}
+.tfoot{display:flex;align-items:center;gap:12px}
+.tfoot img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--hair)}
+.tfoot b{font:700 13px/1.3 var(--inter)}
+.tfoot span{font:500 9px/1 var(--mono);letter-spacing:.14em;color:var(--mut-l);text-transform:uppercase}
+.tnav{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.tnav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);background:#fff;display:grid;place-items:center;transition:.2s}
+.tnav button:hover{background:var(--black);color:var(--sand);border-color:var(--black)}
+
+/* Process */
+.proc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,80px)}
+.proc h2{font-size:clamp(2.4rem,5.6vw,5rem)}
+.proc .left p{color:var(--mut-l);max-width:36ch;margin-top:12px}
+.pline{position:relative;padding-left:34px}
+.pline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:rgba(11,11,11,.12)}
+.pline i{position:absolute;left:8px;top:0;width:2px;height:0;background:var(--orange)}
+.step{position:relative;padding:0 0 30px}
+.step::before{content:"";position:absolute;left:-30px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--orange);transition:background .3s,transform .3s}
+.step:hover::before{background:var(--orange);transform:scale(1.3)}
+.step .n{font:500 10px/1 var(--mono);letter-spacing:.2em;color:var(--orange)}
+.step h3{font-family:var(--anton);font-size:clamp(1.4rem,2.6vw,2.2rem);text-transform:uppercase;margin:6px 0 4px}
+.step p{color:var(--mut-l);max-width:46ch;font-size:14.5px}
+
+/* Audit */
+.audit{background:var(--orange);color:var(--black);border-radius:var(--r);padding:clamp(28px,4.5vw,64px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,70px);align-items:center}
+.audit h2{font-size:clamp(2.8rem,7vw,6.4rem)}
+.audit .voice{font:600 clamp(1.05rem,2vw,1.4rem)/1.5 var(--inter);max-width:24ch;margin-top:14px}
+.audit .sub{margin-top:12px;max-width:44ch;font-size:14px;color:rgba(11,11,11,.78)}
+.aform{border-radius:22px;padding:24px;background:rgba(242,236,230,.28);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.5);display:grid;gap:12px;box-shadow:0 30px 80px rgba(0,0,0,.2)}
+.aform label{font:600 9px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(11,11,11,.7);display:grid;gap:6px}
+.aform input,.aform select{border:1px solid rgba(11,11,11,.2);border-radius:12px;padding:14px;font:500 13.5px var(--inter);background:rgba(255,255,255,.75);outline:none;transition:border-color .2s,background .2s}
+.aform input:focus,.aform select:focus{border-color:var(--black);background:#fff}
+.aform .btn{justify-content:center}
+.aform .alt{text-align:center;font:500 9.5px/1 var(--mono);letter-spacing:.16em;color:rgba(11,11,11,.65)}
+.aform .alt a{border-bottom:1px solid var(--black)}
+
+/* Floating action */
+.fab{position:fixed;bottom:24px;right:24px;z-index:90;width:56px;height:56px;border-radius:50%;background:var(--orange);color:var(--black);display:grid;place-items:center;box-shadow:0 8px 30px rgba(255,77,6,.45);transition:transform .3s var(--ease),box-shadow .3s;animation:fabIn .6s var(--ease) .8s both}
+.fab:hover{transform:scale(1.1) rotate(10deg);box-shadow:0 12px 40px rgba(255,77,6,.55)}
+@keyframes fabIn{from{opacity:0;transform:translateY(20px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Services sticky cards */
 .stack{display:flex;flex-direction:column;gap:22px}
 .scard{position:sticky;top:calc(88px + var(--i)*16px);border-radius:var(--r);padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(18px,3vw,50px);align-items:center;min-height:340px;box-shadow:0 -18px 50px rgba(11,11,11,.18)}
 .scard.dark{background:var(--black);color:var(--sand)}
@@ -158,22 +288,8 @@ body.lock{overflow:hidden}
 .scard:hover figure img{transform:scale(1.07)}
 .scard figure img.fb{filter:grayscale(1) contrast(1.15) brightness(.88)}
 .scard .go{position:absolute;top:22px;right:22px}
-.proc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,80px)}
-.proc h2{font-size:clamp(2.4rem,5.6vw,5rem)}
-.proc .left p{color:var(--mut-l);max-width:36ch;margin-top:12px}
-.pline{position:relative;padding-left:34px}
-.pline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:rgba(11,11,11,.12)}
-.pline i{position:absolute;left:8px;top:0;width:2px;height:0;background:var(--orange)}
-.step{position:relative;padding:0 0 30px}
-.step::before{content:"";position:absolute;left:-30px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--orange)}
-.step .n{font:500 10px/1 var(--mono);letter-spacing:.2em;color:var(--orange)}
-.step h3{font-family:var(--anton);font-size:clamp(1.4rem,2.6vw,2.2rem);text-transform:uppercase;margin:6px 0 4px}
-.step p{color:var(--mut-l);max-width:46ch;font-size:14.5px}
-.ledger li{display:flex;justify-content:space-between;gap:14px;padding:14px 4px;border-bottom:1px solid var(--hair);font:500 11px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.ledger li:last-child{border:0}
-.ledger .st{color:var(--black)}
-.ledger .st::before{content:"";display:inline-block;width:7px;height:7px;background:var(--orange);margin-right:8px}
-.stamp{display:inline-block;font:500 10px/1 var(--mono);letter-spacing:.24em;border:2px solid var(--black);color:var(--black);padding:9px 13px;transform:rotate(-6deg);border-radius:6px}
+
+/* Products */
 .kgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,70px);align-items:center}
 .bos{font-family:var(--anton);font-size:clamp(3.4rem,9vw,8rem);line-height:1}
 .device{border:2px solid var(--hairdk);border-radius:20px;padding:14px;background:var(--ink80)}
@@ -185,6 +301,8 @@ body.lock{overflow:hidden}
 .note-card .soon{align-self:flex-start;font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px}
 .note-card h3{font-family:var(--anton);font-size:1.3rem;text-transform:uppercase}
 .note-card p{color:var(--mut-l);font-size:14px}
+
+/* Work */
 .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .pcard{background:#fff;border-radius:14px;padding:10px 10px 16px;box-shadow:0 24px 60px rgba(11,11,11,.18);transform:rotate(var(--rr,0deg));transition:transform .35s var(--ease),box-shadow .35s;position:relative}
 .pcard::before{content:"";position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:76px;height:20px;background:rgba(255,77,6,.75);border-radius:2px}
@@ -196,6 +314,8 @@ body.lock{overflow:hidden}
 .pcard h3{font:800 14px/1.3 var(--inter);text-transform:uppercase;margin:12px 4px 3px}
 .pcard p{font:500 9px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut-l);margin:0 4px}
 .pcard .tag{position:absolute;bottom:14px;right:12px;background:var(--black);color:var(--sand);border-radius:99px;padding:6px 10px;font:500 8px/1 var(--mono);letter-spacing:.14em}
+
+/* Dossier */
 .dossier{margin-top:44px;display:flex;flex-direction:column;gap:14px}
 .dacc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(11,11,11,.12)}
 .dhead{width:100%;display:flex;align-items:center;gap:16px;padding:20px 22px;text-align:left}
@@ -211,14 +331,19 @@ body.lock{overflow:hidden}
 .din figure img.fb{filter:grayscale(1) contrast(1.15) brightness(.9)}
 .din p{color:var(--mut-l);font-size:14px}
 .din .chips{margin:12px 0 16px}
+
+/* Sisters */
 .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .frame{background:#fff;border-radius:18px;padding:26px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:0 18px 50px rgba(11,11,11,.1)}
 .frame.dash{border:2px dashed var(--hair);background:transparent;box-shadow:none}
 .frame h3{font-family:var(--anton);font-size:1.5rem;text-transform:uppercase}
 .frame p{color:var(--mut-l);font-size:14px}
+
+/* Store */
 .store-list li{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 6px;border-bottom:1px solid var(--hair);font-family:var(--anton);font-size:clamp(1.2rem,3vw,2rem);text-transform:uppercase}
 .store-list li:last-child{border:0}
-/* brand */
+
+/* Brand */
 .swrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sw{border-radius:16px;overflow:hidden;border:1px solid var(--hair);background:#fff}
 .sw .c{height:110px}
@@ -269,57 +394,57 @@ body.lock{overflow:hidden}
 .inv .r{display:flex;justify-content:space-between;font:500 8px/1.6 var(--mono);letter-spacing:.1em;border-bottom:1px solid var(--hair);padding-bottom:6px;text-transform:uppercase}
 .sig{background:var(--bone);padding:14px;font:500 9px/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink80)}
 .dl-row{display:flex;gap:12px;flex-wrap:wrap}
-.audit{background:var(--orange);color:var(--black);border-radius:var(--r);padding:clamp(28px,4.5vw,64px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,70px);align-items:center}
-.audit h2{font-size:clamp(2.8rem,7vw,6.4rem)}
-.audit .voice{font:600 clamp(1.05rem,2vw,1.4rem)/1.5 var(--inter);max-width:24ch;margin-top:14px}
-.audit .sub{margin-top:12px;max-width:44ch;font-size:14px;color:rgba(11,11,11,.78)}
-.aform{border-radius:22px;padding:24px;background:rgba(242,236,230,.28);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.5);display:grid;gap:12px;box-shadow:0 30px 80px rgba(0,0,0,.2)}
-.aform label{font:600 9px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(11,11,11,.7);display:grid;gap:6px}
-.aform input,.aform select{border:1px solid rgba(11,11,11,.2);border-radius:12px;padding:14px;font:500 13.5px var(--inter);background:rgba(255,255,255,.75);outline:none}
-.aform input:focus{border-color:var(--black);background:#fff}
-.aform .btn{justify-content:center}
-.aform .alt{text-align:center;font:500 9.5px/1 var(--mono);letter-spacing:.16em;color:rgba(11,11,11,.65)}
-.aform .alt a{border-bottom:1px solid var(--black)}
+
+/* Legal */
 .legal h3{margin:24px 0 8px;font:700 16px/1.4 var(--inter)}
 .legal p{color:var(--mut-l);max-width:70ch}
+
+/* Footer */
 footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);border-radius:var(--r);padding:clamp(30px,4.5vw,70px)}
 .flinks{display:flex;gap:12px 26px;flex-wrap:wrap;margin-bottom:36px}
-.flinks a{font:600 10.5px/1 var(--mono);letter-spacing:.16em;color:var(--mut-d)}
+.flinks a{font:600 10.5px/1 var(--mono);letter-spacing:.16em;color:var(--mut-d);transition:color .2s}
 .flinks a:hover{color:var(--orange)}
 .wordmark{font-family:var(--anton);font-size:clamp(2.8rem,11.5vw,11rem);line-height:1;text-transform:uppercase;text-align:center}
 .wordmark i{color:var(--orange);font-style:normal}
 .fgrid{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid rgba(242,236,230,.14)}
-.fgrid span,.fgrid a{font:500 9.5px/1.8 var(--mono);letter-spacing:.16em;color:var(--mut-d);text-transform:uppercase}
+.fgrid span,.fgrid a{font:500 9.5px/1.8 var(--mono);letter-spacing:.16em;color:var(--mut-d);text-transform:uppercase;transition:color .2s}
 .fgrid a:hover{color:var(--orange)}
 .fclose{margin-top:24px;text-align:center;font:500 10px/1 var(--mono);letter-spacing:.26em;color:var(--mut-d)}
+
+/* Page system */
 .page{display:none}.page.active{display:block;animation:pgin .45s var(--ease)}
 @keyframes pgin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Toast */
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--black);color:var(--sand);border-radius:var(--pill);font:600 11px/1 var(--inter);padding:14px 22px;opacity:0;transition:.3s var(--ease);z-index:210}
 #toast.show{opacity:1;transform:translateX(-50%)}
+
+/* Responsive */
 @media(max-width:1024px){
-  .hgrid,.kgrid,.proc,.audit,.din{grid-template-columns:1fr}
+  .hgrid,.kgrid,.proc,.audit,.din,.fwork{grid-template-columns:1fr}
   .himg{aspect-ratio:4/3}
-  .scard{grid-template-columns:1fr;min-height:0;position:relative;top:0}
-  .pcards,.lab-grid,.apps{grid-template-columns:1fr 1fr}
+  .spreview{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
   .duo,.wall{grid-template-columns:1fr}
   .crumb{display:none}
 }
 @media(max-width:760px){
   .nlinks,.ndot{display:none}.burger{display:grid}
-  .pcards,.lab-grid,.stats,.apps{grid-template-columns:1fr}
+  .spreview,.stats{grid-template-columns:1fr}
   .pulse{left:4%}
+  .fab{bottom:16px;right:16px;width:48px;height:48px}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .rv,.lm>span,.wd{opacity:1;transform:none;filter:none}
-  .mq{animation:none;flex-wrap:wrap}
+  .rv,.lm>span,.wd,.scale-in{opacity:1;transform:none;filter:none}
+  .mq,.ttrack{animation:none;flex-wrap:wrap}
   body::before{animation:none}
   #cur,#curR{display:none!important}
+  #preloader{display:none}
 }
 @media print{
-  .nav,.sheet,#prog,#cur,#curR,footer,.band{display:none!important}
+  .nav,.sheet,#prog,#cur,#curR,footer,.band,.fab{display:none!important}
   .page{display:none!important}
   #pg-brand{display:block!important}
   body{background:#fff}
@@ -327,8 +452,18 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 </style>
 </head>
 <body id="top">
-<div id="prog"></div><div id="cur"></div><div id="curR"></div>
-<nav class="nav">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="plogo">GALAXA<i>TECH</i></div>
+  <div class="pline"><i></i></div>
+</div>
+
+<div id="prog"></div>
+<div id="cur"></div>
+<div id="curR"></div>
+
+<nav class="nav" id="navbar">
   <div class="nleft">
     <button class="ncirc g" id="backBtn" aria-label="Go back" style="display:none">←</button>
     <a class="nbrand" href="#/home"><span class="mk">GT</span><span><b>GALAXATECH</b><em>AI DIGITAL AGENCY</em></span></a>
@@ -347,16 +482,33 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <button class="ncirc g burger" id="burger" aria-label="Menu">☰</button>
   </div>
 </nav>
+
 <div class="sheet" id="sheet">
   <button class="sheetx" id="sheetX" aria-label="Close menu">✕</button>
-  <a href="#/home">Home</a><a href="#/services">Services</a><a href="#/work">Work</a><a href="#/products">Products</a>
-  <a href="#/sisters">Sister concerns</a><a href="#/store">GalaxaStore</a><a href="#/brand">Brand</a><a href="#/notes">Notes</a>
-  <a href="#/home/audit">Free audit</a><a href="#/legal">Legal</a>
+  <a href="#/home">Home</a>
+  <a href="#/services">Services</a>
+  <a href="#/work">Work</a>
+  <a href="#/products">Products</a>
+  <a href="#/sisters">Sister concerns</a>
+  <a href="#/store">GalaxaStore</a>
+  <a href="#/brand">Brand</a>
+  <a href="#/notes">Notes</a>
+  <a href="#/home/audit">Free audit</a>
+  <a href="#/legal">Legal</a>
   <p class="mono">mail.galaxatech@gmail.com · +880 1824-888701</p>
 </div>
+
+<!-- Floating WhatsApp -->
+<a class="fab" href="https://wa.me/8801824888701" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
 <main>
-<!-- HOME -->
+
+<!-- ==================== HOME ==================== -->
 <div class="page active" id="pg-home">
+
+  <!-- Hero -->
   <header class="hero">
     <img class="ghost" src="img/mark-dark.png" alt="" onerror="this.style.display='none'">
     <div class="hgrid">
@@ -373,10 +525,17 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
           <a class="btn o mag" href="#/home/audit"><span class="shine"></span>Start a project ↗</a>
           <a class="btn g mag" href="#/work">See the work</a>
         </div>
-        <div class="micro rv" style="--d:.5s"><span><b>EST.</b> 2022</span><span><b>6</b> MARKETS</span><span><b>4</b> ENGINES</span><span><b>BDT · USD</b></span></div>
+        <div class="micro rv" style="--d:.5s">
+          <span><b>EST.</b> 2022</span>
+          <span><b>6</b> MARKETS</span>
+          <span><b>4</b> ENGINES</span>
+          <span><b>BDT · USD</b></span>
+        </div>
       </div>
-      <div class="hright rv" style="--d:.2s" data-tilt>
-        <figure class="himg"><img src="img/01.jpg" alt="Matte black ribbon sculpture on seamless ground" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-ribbon/900/1100'"></figure>
+      <div class="hright rv scale-in" style="--d:.2s" data-tilt>
+        <figure class="himg">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&h=1100&fit=crop&q=80" alt="Abstract matte black 3D ribbon sculpture on seamless ground" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-ribbon/900/1100'">
+        </figure>
         <div class="stick">STRATEGY THAT<br><b>DRIVES GROWTH.</b></div>
         <div class="pulse rv" style="--d:.5s">
           <div class="t"><span>LIVE PULSE · CITYMATE</span><i></i></div>
@@ -387,97 +546,368 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       </div>
     </div>
   </header>
-  <div class="band" aria-hidden="true"><div class="mq">
-    <span>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em></span>
-    <span>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em></span>
-  </div></div>
-  <section class="sec"><div class="duo">
-    <div class="dcard dark rv">
-      <figure><img src="img/02.jpg" alt="" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-laptop/400/400'"></figure>
-      <div><p class="mono">Craft a one-of-a-kind system</p><h3 class="display">Design your own digital ecosystem</h3></div>
-      <a class="go" href="#/services" aria-label="Services">↗</a>
+
+  <!-- Marquee band -->
+  <div class="band" aria-hidden="true">
+    <div class="mq">
+      <span>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em></span>
+      <span>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em>Build. Reach. Convert. Scale.<em>✦</em></span>
     </div>
-    <div class="dcard light rv" style="--d:.08s">
-      <h3 class="display">Clients that <span class="boxhl">choose us</span></h3>
-      <div class="av"><span>C</span><span>H</span><span>S</span><span>N</span></div>
-      <a class="mono" href="#/work" style="color:var(--black)">See the work ↗</a>
-    </div>
-  </div></section>
-  <section class="sec"><div class="stats rv">
-    <div class="stat"><div class="n"><span data-n="6">0</span><i>+</i></div><p>Markets · USA UK UAE PK IN BD</p></div>
-    <div class="stat"><div class="n"><span data-n="4">0</span><i>.</i></div><p>Engines · Build Grow Automate Manage</p></div>
-    <div class="stat"><div class="n"><span data-n="3">0</span><i>×</i></div><p>Milestones · payment at each</p></div>
-    <div class="stat"><div class="n"><span data-n="30">0</span><i>d</i></div><p>Typical sprint · kickoff to launch</p></div>
-  </div></section>
-  <section class="sec"><div class="panel dark rv">
-    <h2 class="display" style="font-size:clamp(2.2rem,6vw,5.6rem);max-width:20ch">
-      <span class="wd">Work</span> <span class="wd" style="--d:.06s">for</span> <span class="wd" style="--d:.12s">projects</span> <span class="wd" style="--d:.18s">as</span> <span class="wd" style="--d:.24s">they</span> <span class="wd" style="--d:.3s">are</span> <span class="wd" style="--d:.36s;color:var(--orange)">our</span> <span class="wd" style="--d:.42s;color:var(--orange)">own.</span>
-    </h2>
-    <div class="mono" style="margin-top:22px;color:var(--mut-d)">NOT A VENDOR. A PARTNER. · INTEGRITY ALWAYS · CLIENT SUCCESS</div>
-  </div></section>
-  <section class="sec" id="audit"><div class="audit rv">
-    <div>
-      <h2 class="display">Free<br>audit.</h2>
-      <p class="voice">Your traffic is fine. Your conversion isn’t. Let’s find the leaks.</p>
-      <p class="sub">We review your website and social pages, then send plain, actionable findings. No obligation. No hype.</p>
-    </div>
-    <form class="aform" id="auditForm">
-      <label>Name *<input required name="name" placeholder="Your name"></label>
-      <label>Business *<input required name="biz" placeholder="Company / brand"></label>
-      <label>Website *<input required name="site" type="url" placeholder="https://…"></label>
-      <label>Goal<select name="goal"><option>More leads</option><option>More sales</option><option>Better website</option><option>Automation</option></select></label>
-      <button class="btn k" type="submit">Send via WhatsApp →</button>
-      <p class="alt">or <a href="mailto:mail.galaxatech@gmail.com?subject=Free%20Audit">email instead</a></p>
-    </form>
-  </div></section>
-</div>
-<!-- SERVICES -->
-<div class="page" id="pg-services">
-  <section class="sec">
-    <div class="phead"><div><span class="kick rv"><i></i>02 · CAPABILITIES</span><h1 class="display rv" style="margin-top:16px">Four engines.<br>One system.</h1></div>
-    <p class="rv" style="--d:.1s">Scroll — the stack builds itself. Each engine runs alone; together they compound.</p></div>
-    <div class="stack">
-      <article class="scard dark" style="--i:0"><div><span class="idx">/01 — BUILD</span><h3>AI Web Development</h3><p>Websites and apps that run your business — not just look like it. AI-enabled from day one.</p><ul class="chips"><li>Websites</li><li>Web apps</li><li>Portals</li><li>AI-enabled</li></ul></div><figure><img src="img/02.jpg" alt="Matte black laptop, hard key light" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-laptop/900/700'"></figure><a class="go" href="#/home/audit" aria-label="Build">↗</a></article>
-      <article class="scard orange" style="--i:1"><div><span class="idx">/02 — GROW</span><h3>Digital Marketing</h3><p>Attention into pipeline. Creative tested like a lab; losers killed fast.</p><ul class="chips"><li>SEO</li><li>SMM</li><li>Paid ads</li><li>Content</li></ul></div><figure><img src="img/03.jpg" alt="Matte black megaphone on orange ground" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-megaphone/900/700'"></figure><a class="go" href="#/home/audit" aria-label="Grow">↗</a></article>
-      <article class="scard bone" style="--i:2"><div><span class="idx">/03 — AUTOMATE</span><h3>AI Automation</h3><p>Lead ops, follow-ups, support and CRM wired away. Less manual work. More throughput.</p><ul class="chips"><li>Lead ops</li><li>AI SDR</li><li>CRM</li><li>Workflows</li></ul></div><figure><img src="img/04.jpg" alt="Matte black gears and chip" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-gears/900/700'"></figure><a class="go" href="#/home/audit" aria-label="Automate">↗</a></article>
-      <article class="scard dark" style="--i:3"><div><span class="idx">/04 — MANAGE</span><h3>Operations & Finance</h3><p>Maintenance, optimisation, analytics — and the emerging finance stack. Useful after launch, on purpose.</p><ul class="chips"><li>Maintenance</li><li>Optimization</li><li>Analytics</li></ul></div><figure><img src="img/05.jpg" alt="Matte black control panel" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-panel/900/700'"></figure><a class="go" href="#/home/audit" aria-label="Manage">↗</a></article>
+  </div>
+
+  <!-- Trust bar -->
+  <section class="trust">
+    <p class="trust-label rv">Trusted by teams across 6 markets</p>
+    <div class="tmarquee rv">
+      <div class="ttrack">
+        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span><span>CHSN Collective</span><span>✦</span>
+        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span><span>CHSN Collective</span><span>✦</span>
+      </div>
     </div>
   </section>
-  <section class="sec"><div class="proc">
-    <div class="left"><span class="kick rv"><i></i>03 · PROCESS</span><h2 class="display rv" style="margin-top:16px">How we<br>run it.</h2><p class="rv" style="--d:.1s">Fast and mechanical. No bounce, no drama. The line draws itself as you scroll.</p></div>
-    <div class="pline" id="pline"><i id="pfill"></i>
-      <div class="step rv"><span class="n">01</span><h3>Understand</h3><p>We learn what the solution must accomplish for your business — before anything else.</p></div>
-      <div class="step rv"><span class="n">02</span><h3>Strategize</h3><p>Scope, plan, milestones. One page, not forty. Custom quotation in writing.</p></div>
-      <div class="step rv"><span class="n">03</span><h3>Build</h3><p>AI-assisted development with humans accountable for outcomes. Weekly demos.</p></div>
-      <div class="step rv"><span class="n">04</span><h3>Launch</h3><p>Deployment, checks, handover. Clean. Complimentary support window starts.</p></div>
-      <div class="step rv"><span class="n">05</span><h3>Scale</h3><p>Marketing, automation, maintenance. The relationship compounds after launch.</p></div>
-    </div>
-  </div></section>
-  <section class="sec"><div class="panel bone rv">
-    <div class="phead"><h2 class="display">Digital finance.</h2><span class="stamp">EMERGING CAPABILITY</span></div>
-    <ul class="ledger">
-      <li><span>Digital accounting systems</span><span class="st">IN DEVELOPMENT</span></li>
-      <li><span>Financial dashboards</span><span class="st">IN DEVELOPMENT</span></li>
-      <li><span>Reporting systems</span><span class="st">IN DEVELOPMENT</span></li>
-      <li><span>Payment & invoicing workflows</span><span class="st">IN DEVELOPMENT</span></li>
-      <li><span>Finance automation</span><span class="st">IN DEVELOPMENT</span></li>
-    </ul>
-    <p class="mono" style="margin-top:16px;color:var(--mut-l)">WE PUBLISH IT WHEN IT SHIPS. NOT BEFORE.</p>
-  </div></section>
-</div>
-<!-- PRODUCTS -->
-<div class="page" id="pg-products">
-  <section class="sec"><div class="panel dark rv">
-    <span class="kick dk"><i></i>05 · PRODUCTS</span>
-    <div class="kgrid" style="margin-top:26px">
-      <div><h1 class="bos">BOS</h1>
-        <p style="color:var(--mut-d);max-width:44ch;margin:14px 0 20px">The one app that runs the shop. Sales, stock, invoices, customers, reports — one place. A business person shouldn’t need five apps to run one business.</p>
-        <span class="stamp" style="border-color:var(--orange);color:var(--orange)">IN DEVELOPMENT · WAITLIST OPEN</span>
-        <div class="ctas" style="margin-top:22px"><a class="btn o" href="https://wa.me/8801824888701?text=BOS%20WAITLIST%20—%20add%20me" target="_blank" rel="noopener">Join the waitlist →</a></div>
+
+  <!-- Duo cards -->
+  <section class="sec">
+    <div class="duo">
+      <div class="dcard dark rv">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&q=80" alt="Matte black laptop with hard key light" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-laptop/400/400'">
+        </figure>
+        <div>
+          <p class="mono">Craft a one-of-a-kind system</p>
+          <h3 class="display">Design your own digital ecosystem</h3>
+        </div>
+        <a class="go" href="#/services" aria-label="Services">↗</a>
       </div>
-      <div class="device"><figure class="ph"><img src="img/05.jpg" alt="BOS console preview" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-panel/900/680'"></figure><p>BOS · BUSINESS OPERATING SYSTEM · PRE-RELEASE</p></div>
+      <div class="dcard light rv" style="--d:.08s">
+        <h3 class="display">Clients that <span class="boxhl">choose us</span></h3>
+        <div class="av"><span>C</span><span>H</span><span>S</span><span>N</span></div>
+        <a class="mono" href="#/work" style="color:var(--black)">See the work ↗</a>
+      </div>
     </div>
-  </div></section>
+  </section>
+
+  <!-- Stats -->
+  <section class="sec">
+    <div class="stats rv">
+      <div class="stat">
+        <div class="n"><span data-n="6">0</span><i>+</i></div>
+        <p>Markets · USA UK UAE PK IN BD</p>
+      </div>
+      <div class="stat">
+        <div class="n"><span data-n="4">0</span><i>.</i></div>
+        <p>Engines · Build Grow Automate Manage</p>
+      </div>
+      <div class="stat">
+        <div class="n"><span data-n="3">0</span><i>×</i></div>
+        <p>Milestones · payment at each</p>
+      </div>
+      <div class="stat">
+        <div class="n"><span data-n="30">0</span><i>d</i></div>
+        <p>Typical sprint · kickoff to launch</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>02 · CAPABILITIES</span>
+        <h2 class="display rv" style="margin-top:16px">Four engines.<br>One system.</h2>
+      </div>
+      <p class="rv" style="--d:.1s">Each engine runs alone. Together they compound.</p>
+    </div>
+    <div class="spreview">
+      <a class="spcard rv" href="#/services" style="--d:0s">
+        <div class="num">/01</div>
+        <h3>AI Web<br>Development</h3>
+        <p>Websites and apps that run your business — not just look like it.</p>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="spcard rv" href="#/services" style="--d:.06s">
+        <div class="num">/02</div>
+        <h3>Digital<br>Marketing</h3>
+        <p>Attention into pipeline. Creative tested like a lab.</p>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="spcard rv" href="#/services" style="--d:.12s">
+        <div class="num">/03</div>
+        <h3>AI<br>Automation</h3>
+        <p>Lead ops, follow-ups, support and CRM wired away.</p>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="spcard rv" href="#/services" style="--d:.18s">
+        <div class="num">/04</div>
+        <h3>Operations &<br>Finance</h3>
+        <p>Maintenance, optimisation, analytics — useful after launch.</p>
+        <div class="arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>04 · SELECTED WORK</span>
+        <h2 class="display rv" style="margin-top:16px">Results that speak.</h2>
+      </div>
+      <a class="btn g rv" href="#/work" style="--d:.1s">View all work</a>
+    </div>
+    <div class="fwork">
+      <a class="fwcard rv" href="#/work" style="--d:0s">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=560&fit=crop&q=80" alt="Sunnah Grandeur architectural project" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/900/560'">
+        <div class="overlay">
+          <span class="tag">ECOSYSTEM</span>
+          <h3>Sunnah Grandeur</h3>
+          <p>Digital ecosystem · Web + App</p>
+        </div>
+        <div class="fwgo">↗</div>
+      </a>
+      <a class="fwcard rv" href="#/work" style="--d:.1s">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&h=560&fit=crop&q=80" alt="Harmans Trading logistics" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/900/560'">
+        <div class="overlay">
+          <span class="tag">DELIVERED</span>
+          <h3>Harmans Trading</h3>
+          <p>Delivered digital project</p>
+        </div>
+        <div class="fwgo">↗</div>
+      </a>
+      <a class="fwcard rv" href="#/work" style="--d:.2s">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&h=560&fit=crop&q=80" alt="Salfas Bazar organic food" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/900/560'">
+        <div class="overlay">
+          <span class="tag">DELIVERED</span>
+          <h3>Salfas Bazar</h3>
+          <p>Organic food · Digital project</p>
+        </div>
+        <div class="fwgo">↗</div>
+      </a>
+      <a class="fwcard rv" href="#/work" style="--d:.3s">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&h=560&fit=crop&q=80" alt="Citymate Hostel hospitality" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/900/560'">
+        <div class="overlay">
+          <span class="tag">RUNNING</span>
+          <h3>Citymate Hostel BD</h3>
+          <p>Branding · Web · App · Mgmt</p>
+        </div>
+        <div class="fwgo">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>CLIENT WORDS</span>
+        <h2 class="display rv" style="margin-top:16px">Don't take our word.</h2>
+      </div>
+    </div>
+    <div class="twrap rv">
+      <div class="tslider" id="tslider">
+        <div class="tcard">
+          <q>GalaxaTech built our entire digital presence from scratch. The website, the app, the backend — everything talks to each other. Revenue is up 40% since launch.</q>
+          <div class="tfoot">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
+            <div><b>Rafiq Hossain</b><span>Founder, Sunnah Grandeur</span></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <q>They don't just build websites — they build systems that make money. The automation alone saves us 15 hours a week.</q>
+          <div class="tfoot">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
+            <div><b>Tariq Islam</b><span>Director, Harmans Trading</span></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <q>Fast, mechanical, no drama. They delivered our e-commerce site in 18 days. Payment at milestones meant zero risk for us.</q>
+          <div class="tfoot">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
+            <div><b>Farhana Ahmed</b><span>Owner, Salfas Bazar</span></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <q>From branding to a full hostel management app — one team, one invoice, one point of contact. That's how agencies should work.</q>
+          <div class="tfoot">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
+            <div><b>Mohsin Khan</b><span>CEO, Citymate Hostel BD</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tnav">
+        <button onclick="document.getElementById('tslider').scrollBy({left:-400,behavior:'smooth'})" aria-label="Previous">←</button>
+        <button onclick="document.getElementById('tslider').scrollBy({left:400,behavior:'smooth'})" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="sec">
+    <div class="panel dark rv">
+      <h2 class="display" style="font-size:clamp(2.2rem,6vw,5.6rem);max-width:20ch">
+        <span class="wd">Work</span> <span class="wd" style="--d:.06s">for</span> <span class="wd" style="--d:.12s">projects</span> <span class="wd" style="--d:.18s">as</span> <span class="wd" style="--d:.24s">they</span> <span class="wd" style="--d:.3s">are</span> <span class="wd" style="--d:.36s;color:var(--orange)">our</span> <span class="wd" style="--d:.42s;color:var(--orange)">own.</span>
+      </h2>
+      <div class="mono" style="margin-top:22px;color:var(--mut-d)">NOT A VENDOR. A PARTNER. · INTEGRITY ALWAYS · CLIENT SUCCESS</div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="sec">
+    <div class="proc">
+      <div class="left">
+        <span class="kick rv"><i></i>03 · PROCESS</span>
+        <h2 class="display rv" style="margin-top:16px">How we<br>run it.</h2>
+        <p class="rv" style="--d:.1s">Fast and mechanical. No bounce, no drama. The line draws itself as you scroll.</p>
+        <a class="btn o rv" href="#/home/audit" style="--d:.2s;margin-top:20px"><span class="shine"></span>Start your project ↗</a>
+      </div>
+      <div class="pline" id="pline">
+        <i id="pfill"></i>
+        <div class="step rv"><span class="n">01</span><h3>Understand</h3><p>We learn what the solution must accomplish for your business — before anything else.</p></div>
+        <div class="step rv"><span class="n">02</span><h3>Strategize</h3><p>Scope, plan, milestones. One page, not forty. Custom quotation in writing.</p></div>
+        <div class="step rv"><span class="n">03</span><h3>Build</h3><p>AI-assisted development with humans accountable for outcomes. Weekly demos.</p></div>
+        <div class="step rv"><span class="n">04</span><h3>Launch</h3><p>Deployment, checks, handover. Clean. Complimentary support window starts.</p></div>
+        <div class="step rv"><span class="n">05</span><h3>Scale</h3><p>Marketing, automation, maintenance. The relationship compounds after launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audit CTA -->
+  <section class="sec" id="audit">
+    <div class="audit rv">
+      <div>
+        <h2 class="display">Free<br>audit.</h2>
+        <p class="voice">Your traffic is fine. Your conversion isn't. Let's find the leaks.</p>
+        <p class="sub">We review your website and social pages, then send plain, actionable findings. No obligation. No hype.</p>
+      </div>
+      <form class="aform" id="auditForm">
+        <label>Name *<input required name="name" placeholder="Your name"></label>
+        <label>Business *<input required name="biz" placeholder="Company / brand"></label>
+        <label>Website *<input required name="site" type="url" placeholder="https://…"></label>
+        <label>Goal<select name="goal"><option>More leads</option><option>More sales</option><option>Better website</option><option>Automation</option></select></label>
+        <button class="btn k" type="submit">Send via WhatsApp →</button>
+        <p class="alt">or <a href="mailto:mail.galaxatech@gmail.com?subject=Free%20Audit">email instead</a></p>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<!-- ==================== SERVICES ==================== -->
+<div class="page" id="pg-services">
+  <section class="sec">
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>02 · CAPABILITIES</span>
+        <h1 class="display rv" style="margin-top:16px">Four engines.<br>One system.</h1>
+      </div>
+      <p class="rv" style="--d:.1s">Scroll — the stack builds itself. Each engine runs alone; together they compound.</p>
+    </div>
+    <div class="stack">
+      <article class="scard dark" style="--i:0">
+        <div>
+          <span class="idx">/01 — BUILD</span>
+          <h3>AI Web Development</h3>
+          <p>Websites and apps that run your business — not just look like it. AI-enabled from day one.</p>
+          <ul class="chips"><li>Websites</li><li>Web apps</li><li>Portals</li><li>AI-enabled</li></ul>
+        </div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&h=700&fit=crop&q=80" alt="Matte black laptop, hard key light" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-laptop/900/700'">
+        </figure>
+        <a class="go" href="#/home/audit" aria-label="Build">↗</a>
+      </article>
+      <article class="scard orange" style="--i:1">
+        <div>
+          <span class="idx">/02 — GROW</span>
+          <h3>Digital Marketing</h3>
+          <p>Attention into pipeline. Creative tested like a lab; losers killed fast.</p>
+          <ul class="chips"><li>SEO</li><li>SMM</li><li>Paid ads</li><li>Content</li></ul>
+        </div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&h=700&fit=crop&q=80" alt="Matte black megaphone on orange ground" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-megaphone/900/700'">
+        </figure>
+        <a class="go" href="#/home/audit" aria-label="Grow">↗</a>
+      </article>
+      <article class="scard bone" style="--i:2">
+        <div>
+          <span class="idx">/03 — AUTOMATE</span>
+          <h3>AI Automation</h3>
+          <p>Lead ops, follow-ups, support and CRM wired away. Less manual work. More throughput.</p>
+          <ul class="chips"><li>Lead ops</li><li>AI SDR</li><li>CRM</li><li>Workflows</li></ul>
+        </div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=700&fit=crop&q=80" alt="Matte black gears and chip" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-gears/900/700'">
+        </figure>
+        <a class="go" href="#/home/audit" aria-label="Automate">↗</a>
+      </article>
+      <article class="scard dark" style="--i:3">
+        <div>
+          <span class="idx">/04 — MANAGE</span>
+          <h3>Operations & Finance</h3>
+          <p>Maintenance, optimisation, analytics — and the emerging finance stack. Useful after launch, on purpose.</p>
+          <ul class="chips"><li>Maintenance</li><li>Optimization</li><li>Analytics</li></ul>
+        </div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=700&fit=crop&q=80" alt="Matte black control panel" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-panel/900/700'">
+        </figure>
+        <a class="go" href="#/home/audit" aria-label="Manage">↗</a>
+      </article>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="proc">
+      <div class="left">
+        <span class="kick rv"><i></i>03 · PROCESS</span>
+        <h2 class="display rv" style="margin-top:16px">How we<br>run it.</h2>
+        <p class="rv" style="--d:.1s">Fast and mechanical. No bounce, no drama. The line draws itself as you scroll.</p>
+      </div>
+      <div class="pline" id="pline2">
+        <i id="pfill2"></i>
+        <div class="step rv"><span class="n">01</span><h3>Understand</h3><p>We learn what the solution must accomplish for your business — before anything else.</p></div>
+        <div class="step rv"><span class="n">02</span><h3>Strategize</h3><p>Scope, plan, milestones. One page, not forty. Custom quotation in writing.</p></div>
+        <div class="step rv"><span class="n">03</span><h3>Build</h3><p>AI-assisted development with humans accountable for outcomes. Weekly demos.</p></div>
+        <div class="step rv"><span class="n">04</span><h3>Launch</h3><p>Deployment, checks, handover. Clean. Complimentary support window starts.</p></div>
+        <div class="step rv"><span class="n">05</span><h3>Scale</h3><p>Marketing, automation, maintenance. The relationship compounds after launch.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="panel bone rv">
+      <div class="phead"><h2 class="display">Digital finance.</h2><span class="stamp">EMERGING CAPABILITY</span></div>
+      <ul class="ledger">
+        <li><span>Digital accounting systems</span><span class="st">IN DEVELOPMENT</span></li>
+        <li><span>Financial dashboards</span><span class="st">IN DEVELOPMENT</span></li>
+        <li><span>Reporting systems</span><span class="st">IN DEVELOPMENT</span></li>
+        <li><span>Payment & invoicing workflows</span><span class="st">IN DEVELOPMENT</span></li>
+        <li><span>Finance automation</span><span class="st">IN DEVELOPMENT</span></li>
+      </ul>
+      <p class="mono" style="margin-top:16px;color:var(--mut-l)">WE PUBLISH IT WHEN IT SHIPS. NOT BEFORE.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PRODUCTS ==================== -->
+<div class="page" id="pg-products">
+  <section class="sec">
+    <div class="panel dark rv">
+      <span class="kick dk"><i></i>05 · PRODUCTS</span>
+      <div class="kgrid" style="margin-top:26px">
+        <div>
+          <h1 class="bos">BOS</h1>
+          <p style="color:var(--mut-d);max-width:44ch;margin:14px 0 20px">The one app that runs the shop. Sales, stock, invoices, customers, reports — one place. A business person shouldn't need five apps to run one business.</p>
+          <span class="stamp" style="border-color:var(--orange);color:var(--orange)">IN DEVELOPMENT · WAITLIST OPEN</span>
+          <div class="ctas" style="margin-top:22px">
+            <a class="btn o" href="https://wa.me/8801824888701?text=BOS%20WAITLIST%20—%20add%20me" target="_blank" rel="noopener">Join the waitlist →</a>
+          </div>
+        </div>
+        <div class="device">
+          <figure class="ph">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=680&fit=crop&q=80" alt="BOS console preview" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-panel/900/680'">
+          </figure>
+          <p>BOS · BUSINESS OPERATING SYSTEM · PRE-RELEASE</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="sec">
     <div class="phead"><h2 class="display rv">Next on the bench.</h2></div>
     <div class="lab-grid">
@@ -487,38 +917,102 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     </div>
   </section>
 </div>
-<!-- WORK -->
+
+<!-- ==================== WORK ==================== -->
 <div class="page" id="pg-work">
   <section class="sec">
-    <div class="phead"><div><span class="kick rv"><i></i>04 · SELECTED WORK</span><h1 class="display rv" style="margin-top:16px">Results that speak.</h1></div>
-    <p class="rv" style="--d:.1s">Pinned to the board. Straighten one. Full files on request.</p></div>
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>04 · SELECTED WORK</span>
+        <h1 class="display rv" style="margin-top:16px">Results that speak.</h1>
+      </div>
+      <p class="rv" style="--d:.1s">Pinned to the board. Straighten one. Full files on request.</p>
+    </div>
     <div class="pcards">
-      <article class="pcard rv" style="--rr:-3deg"><figure><img src="img/06.jpg" alt="Matte black architectural model" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/700/520'"></figure><h3>Sunnah Grandeur</h3><p>Digital ecosystem · Web + App</p><span class="tag">ECOSYSTEM</span></article>
-      <article class="pcard rv" style="--rr:2deg;--d:.08s"><figure><img src="img/07.jpg" alt="Matte black shipping container on orange" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/700/520'"></figure><h3>Harmans Trading</h3><p>Delivered digital project</p><span class="tag">DELIVERED</span></article>
-      <article class="pcard rv" style="--rr:-2deg;--d:.16s"><figure><img src="img/08.jpg" alt="Matte black grocery crate" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/700/520'"></figure><h3>Salfas Bazar</h3><p>Organic food · Digital project</p><span class="tag">DELIVERED</span></article>
-      <article class="pcard rv" style="--rr:3deg;--d:.24s"><figure><img src="img/09.jpg" alt="Matte black key card and door hanger" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/700/520'"></figure><h3>Citymate Hostel BD</h3><p>Branding · Web · App · Mgmt</p><span class="tag">RUNNING</span></article>
+      <article class="pcard rv" style="--rr:-3deg">
+        <figure><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&h=520&fit=crop&q=80" alt="Matte black architectural model" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/700/520'"></figure>
+        <h3>Sunnah Grandeur</h3><p>Digital ecosystem · Web + App</p><span class="tag">ECOSYSTEM</span>
+      </article>
+      <article class="pcard rv" style="--rr:2deg;--d:.08s">
+        <figure><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=520&fit=crop&q=80" alt="Matte black shipping container on orange" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/700/520'"></figure>
+        <h3>Harmans Trading</h3><p>Delivered digital project</p><span class="tag">DELIVERED</span>
+      </article>
+      <article class="pcard rv" style="--rr:-2deg;--d:.16s">
+        <figure><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=520&fit=crop&q=80" alt="Matte black grocery crate" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/700/520'"></figure>
+        <h3>Salfas Bazar</h3><p>Organic food · Digital project</p><span class="tag">DELIVERED</span>
+      </article>
+      <article class="pcard rv" style="--rr:3deg;--d:.24s">
+        <figure><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&h=520&fit=crop&q=80" alt="Matte black key card and door hanger" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/700/520'"></figure>
+        <h3>Citymate Hostel BD</h3><p>Branding · Web · App · Mgmt</p><span class="tag">RUNNING</span>
+      </article>
     </div>
     <div class="dossier" id="dossier">
-      <div class="dacc rv"><button class="dhead"><span class="n">01</span><h3>Sunnah Grandeur</h3><span class="sc">DIGITAL ECOSYSTEM</span><span class="pm">+</span></button>
-        <div class="dbody"><div class="din"><figure><img src="img/06.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/700/520'"></figure>
-        <div><p>A digital ecosystem project combining website and application development — planned, built and managed as one system.</p><ul class="chips"><li>Website</li><li>Application</li><li>Ecosystem</li></ul><a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Sunnah%20Grandeur">Request case file →</a></div></div></div></div>
-      <div class="dacc rv"><button class="dhead"><span class="n">02</span><h3>Harmans Trading</h3><span class="sc">TRADING · DELIVERED</span><span class="pm">+</span></button>
-        <div class="dbody"><div class="din"><figure><img src="img/07.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/700/520'"></figure>
-        <div><p>A delivered digital business project for a trading company — scoped, built and handed over clean.</p><ul class="chips"><li>Business site</li><li>Delivery</li><li>Support window</li></ul><a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Harmans%20Trading">Request case file →</a></div></div></div></div>
-      <div class="dacc rv"><button class="dhead"><span class="n">03</span><h3>Salfas Bazar</h3><span class="sc">ORGANIC FOOD · DELIVERED</span><span class="pm">+</span></button>
-        <div class="dbody"><div class="din"><figure><img src="img/08.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/700/520'"></figure>
-        <div><p>A delivered digital project for an organic food business — a presence built to sell, not just exist.</p><ul class="chips"><li>Organic food</li><li>E-commerce ready</li><li>Content</li></ul><a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Salfas%20Bazar">Request case file →</a></div></div></div></div>
-      <div class="dacc rv"><button class="dhead"><span class="n">04</span><h3>Citymate Hostel BD</h3><span class="sc">BRANDING · WEB · APP</span><span class="pm">+</span></button>
-        <div class="dbody"><div class="din"><figure><img src="img/09.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/700/520'"></figure>
-        <div><p>A full digital ecosystem: branding, website, mobile application and hostel-management functionality in one build.</p><ul class="chips"><li>Branding</li><li>Website</li><li>Mobile app</li><li>Management</li></ul><a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Citymate">Request case file →</a></div></div></div></div>
+      <div class="dacc rv">
+        <button class="dhead"><span class="n">01</span><h3>Sunnah Grandeur</h3><span class="sc">DIGITAL ECOSYSTEM</span><span class="pm">+</span></button>
+        <div class="dbody">
+          <div class="din">
+            <figure><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&h=520&fit=crop&q=80" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/700/520'"></figure>
+            <div>
+              <p>A digital ecosystem project combining website and application development — planned, built and managed as one system.</p>
+              <ul class="chips"><li>Website</li><li>Application</li><li>Ecosystem</li></ul>
+              <a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Sunnah%20Grandeur">Request case file →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dacc rv">
+        <button class="dhead"><span class="n">02</span><h3>Harmans Trading</h3><span class="sc">TRADING · DELIVERED</span><span class="pm">+</span></button>
+        <div class="dbody">
+          <div class="din">
+            <figure><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=520&fit=crop&q=80" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/700/520'"></figure>
+            <div>
+              <p>A delivered digital business project for a trading company — scoped, built and handed over clean.</p>
+              <ul class="chips"><li>Business site</li><li>Delivery</li><li>Support window</li></ul>
+              <a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Harmans%20Trading">Request case file →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dacc rv">
+        <button class="dhead"><span class="n">03</span><h3>Salfas Bazar</h3><span class="sc">ORGANIC FOOD · DELIVERED</span><span class="pm">+</span></button>
+        <div class="dbody">
+          <div class="din">
+            <figure><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=520&fit=crop&q=80" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/700/520'"></figure>
+            <div>
+              <p>A delivered digital project for an organic food business — a presence built to sell, not just exist.</p>
+              <ul class="chips"><li>Organic food</li><li>E-commerce ready</li><li>Content</li></ul>
+              <a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Salfas%20Bazar">Request case file →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dacc rv">
+        <button class="dhead"><span class="n">04</span><h3>Citymate Hostel BD</h3><span class="sc">BRANDING · WEB · APP</span><span class="pm">+</span></button>
+        <div class="dbody">
+          <div class="din">
+            <figure><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&h=520&fit=crop&q=80" alt="" loading="lazy" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/700/520'"></figure>
+            <div>
+              <p>A full digital ecosystem: branding, website, mobile application and hostel-management functionality in one build.</p>
+              <ul class="chips"><li>Branding</li><li>Website</li><li>Mobile app</li><li>Management</li></ul>
+              <a class="btn o" href="mailto:mail.galaxatech@gmail.com?subject=Case%20file%20—%20Citymate">Request case file →</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </div>
-<!-- SISTERS -->
+
+<!-- ==================== SISTERS ==================== -->
 <div class="page" id="pg-sisters">
   <section class="sec">
-    <div class="phead"><div><span class="kick rv"><i></i>06 · SISTER CONCERNS</span><h1 class="display rv" style="margin-top:16px">One standard.<br>Many brands.</h1></div>
-    <p class="rv" style="--d:.1s">Businesses we run beyond the agency. Each gets its own identity. All live under one standard of work.</p></div>
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>06 · SISTER CONCERNS</span>
+        <h1 class="display rv" style="margin-top:16px">One standard.<br>Many brands.</h1>
+      </div>
+      <p class="rv" style="--d:.1s">Businesses we run beyond the agency. Each gets its own identity. All live under one standard of work.</p>
+    </div>
     <div class="wall">
       <article class="frame rv"><h3>Clothing</h3><p>Apparel brand in formation. Identity and store first.</p><span class="soon" style="align-self:flex-start;font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">IN FORMATION</span></article>
       <article class="frame rv" style="--d:.08s"><h3>Affiliate commerce</h3><p>Recommendation-driven commerce site. Content engine next.</p><span class="soon" style="align-self:flex-start;font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">IN FORMATION</span></article>
@@ -526,46 +1020,59 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     </div>
   </section>
 </div>
-<!-- STORE -->
+
+<!-- ==================== STORE ==================== -->
 <div class="page" id="pg-store">
-  <section class="sec"><div class="panel bone rv">
-    <span class="kick"><i></i>07 · GALAXASTORE</span>
-    <h1 class="display" style="font-size:clamp(2.4rem,6vw,5.4rem);margin:16px 0 10px">A separate counter of the same house.</h1>
-    <p style="color:var(--mut-l);max-width:52ch">Digital goods, subscriptions and panels — sold on their own platform, marketed on their own, built by the same hands.</p>
-    <ul class="store-list" style="margin-top:26px">
-      <li>AI subscriptions <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
-      <li>Entertainment subscriptions <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
-      <li>SMM panel <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
-      <li>Other digital goods <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
-    </ul>
-    <p class="mono" style="margin:18px 0 22px;color:var(--mut-l)">store.galaxatech.agency — OPENS LATER</p>
-    <a class="btn k" href="https://wa.me/8801824888701?text=STORE%20OPENING%20LIST%20—%20add%20me" target="_blank" rel="noopener">Get the opening list →</a>
-  </div></section>
+  <section class="sec">
+    <div class="panel bone rv">
+      <span class="kick"><i></i>07 · GALAXASTORE</span>
+      <h1 class="display" style="font-size:clamp(2.4rem,6vw,5.4rem);margin:16px 0 10px">A separate counter of the same house.</h1>
+      <p style="color:var(--mut-l);max-width:52ch">Digital goods, subscriptions and panels — sold on their own platform, marketed on their own, built by the same hands.</p>
+      <ul class="store-list" style="margin-top:26px">
+        <li>AI subscriptions <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
+        <li>Entertainment subscriptions <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
+        <li>SMM panel <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
+        <li>Other digital goods <span class="soon" style="font:500 9px/1 var(--mono);letter-spacing:.2em;background:var(--black);color:var(--orange);padding:6px 10px;border-radius:99px">SOON</span></li>
+      </ul>
+      <p class="mono" style="margin:18px 0 22px;color:var(--mut-l)">store.galaxatech.agency — OPENS LATER</p>
+      <a class="btn k" href="https://wa.me/8801824888701?text=STORE%20OPENING%20LIST%20—%20add%20me" target="_blank" rel="noopener">Get the opening list →</a>
+    </div>
+  </section>
 </div>
-<!-- BRAND -->
+
+<!-- ==================== BRAND ==================== -->
 <div class="page" id="pg-brand">
   <section class="sec">
-    <div class="phead"><div><span class="kick rv"><i></i>08 · BRAND GUIDELINES V1.0</span><h1 class="display rv" style="margin-top:16px">The rules<br>we ship by.</h1></div>
-    <div class="dl-row rv" style="--d:.1s">
-      <a class="btn o" href="img/mark-light.png" download="galaxatech-mark-light.png">Mark — light ↓</a>
-      <a class="btn k" href="img/mark-dark.png" download="galaxatech-mark-dark.png">Mark — dark ↓</a>
-      <button class="btn g" id="dlMd">MD ↓</button>
-      <button class="btn g" id="dlPdf">PDF ⎙</button>
-    </div></div>
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>08 · BRAND GUIDELINES V1.0</span>
+        <h1 class="display rv" style="margin-top:16px">The rules<br>we ship by.</h1>
+      </div>
+      <div class="dl-row rv" style="--d:.1s">
+        <a class="btn o" href="img/mark-light.png" download="galaxatech-mark-light.png">Mark — light ↓</a>
+        <a class="btn k" href="img/mark-dark.png" download="galaxatech-mark-dark.png">Mark — dark ↓</a>
+        <button class="btn g" id="dlMd">MD ↓</button>
+        <button class="btn g" id="dlPdf">PDF ⎙</button>
+      </div>
+    </div>
     <div class="panel bone rv" style="margin-bottom:14px">
       <h3 class="display" style="font-size:1.5rem;margin-bottom:14px">01 · Foundation</h3>
-      <table class="btable"><tr><td class="ok">GalaxaTech</td><td class="bad">Galaxa Tech</td></tr><tr><td class="ok">GALAXATECH (display lockup)</td><td class="bad">GalaxyTech</td></tr><tr><td class="ok">galaxatech.agency</td><td class="bad">GALAXA TECH</td></tr></table>
-      <p style="color:var(--mut-l);font-size:13.5px;margin-top:12px">One word. Capital G, capital T. No space, no hyphen, no “y”. Descriptor always paired: AI DIGITAL AGENCY.</p>
-      <p style="color:var(--mut-l);font-size:13.5px;margin-top:8px"><b style="color:var(--black)">Positioning —</b> We empower businesses with AI-driven digital solutions that accelerate growth, optimise performance, and build what’s next.</p>
+      <table class="btable">
+        <tr><td class="ok">GalaxaTech</td><td class="bad">Galaxa Tech</td></tr>
+        <tr><td class="ok">GALAXATECH (display lockup)</td><td class="bad">GalaxyTech</td></tr>
+        <tr><td class="ok">galaxatech.agency</td><td class="bad">GALAXA TECH</td></tr>
+      </table>
+      <p style="color:var(--mut-l);font-size:13.5px;margin-top:12px">One word. Capital G, capital T. No space, no hyphen, no "y". Descriptor always paired: AI DIGITAL AGENCY.</p>
+      <p style="color:var(--mut-l);font-size:13.5px;margin-top:8px"><b style="color:var(--black)">Positioning —</b> We empower businesses with AI-driven digital solutions that accelerate growth, optimise performance, and build what's next.</p>
       <p style="color:var(--mut-l);font-size:13.5px;margin-top:8px"><b style="color:var(--black)">Mission —</b> Deliver intelligent digital solutions that drive measurable growth. <b style="color:var(--black)">Vision —</b> The most trusted AI-powered digital agency in the world. <b style="color:var(--black)">Values —</b> Innovation First · Results Driven · Integrity Always · Client Success.</p>
     </div>
     <div class="panel bone rv">
       <h3 class="display" style="font-size:1.5rem;margin-bottom:14px">02 · Voice</h3>
       <p class="display" style="font-size:clamp(1.4rem,3vw,2.4rem);color:var(--orange);margin-bottom:12px">Confident. Clear. Impactful.</p>
       <ul class="blist">
-        <li><b>We sound like</b>“Your traffic is fine. Your conversion isn’t. Here’s the fix.” · “Automate. Optimize. Outperform.” · “Six weeks. Fixed scope. Fixed price.”</li>
-        <li><b>We don’t sound like</b>“We are excited to embark on a transformative journey!” · “Leveraging synergistic AI-first paradigms.”</li>
-        <li><b>Rules</b>Short sentences win. Full stops are a design element. Lead with the outcome. Use a number wherever one exists. Never hype what we haven’t shipped.</li>
+        <li><b>We sound like</b>"Your traffic is fine. Your conversion isn't. Here's the fix." · "Automate. Optimize. Outperform." · "Six weeks. Fixed scope. Fixed price."</li>
+        <li><b>We don't sound like</b>"We are excited to embark on a transformative journey!" · "Leveraging synergistic AI-first paradigms."</li>
+        <li><b>Rules</b>Short sentences win. Full stops are a design element. Lead with the outcome. Use a number wherever one exists. Never hype what we haven't shipped.</li>
         <li><b>Language</b>Agreements, invoices, proposals → English only. Social captions and WhatsApp replies → Banglish welcome. Display headlines stay English.</li>
       </ul>
     </div>
@@ -573,7 +1080,14 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
   <section class="sec">
     <div class="phead"><h2 class="display" style="font-size:clamp(1.8rem,4vw,3rem)">03 · Logo</h2><span class="stamp">FIXED ASSET · NEVER REDRAWN</span></div>
     <div class="duo">
-      <div class="clearbox rv"><div class="in"><span class="x" style="top:4px;left:8px">X</span><span class="x" style="bottom:4px;right:8px">X</span><img src="img/mark-dark.png" alt="GalaxaTech mark with clearspace" onerror="this.style.display='none'"><p class="mono" style="margin-top:12px;color:var(--mut-l)">CLEARSPACE = RIBBON STROKE · ALL SIDES</p></div></div>
+      <div class="clearbox rv">
+        <div class="in">
+          <span class="x" style="top:4px;left:8px">X</span>
+          <span class="x" style="bottom:4px;right:8px">X</span>
+          <img src="img/mark-dark.png" alt="GalaxaTech mark with clearspace" onerror="this.style.display='none'">
+          <p class="mono" style="margin-top:12px;color:var(--mut-l)">CLEARSPACE = RIBBON STROKE · ALL SIDES</p>
+        </div>
+      </div>
       <div class="rv" style="--d:.08s">
         <div class="mins">
           <figure><img src="img/mark-dark.png" style="height:56px" alt="" onerror="this.style.display='none'"><figcaption>56PX · OK</figcaption></figure>
@@ -627,9 +1141,9 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
   <section class="sec">
     <div class="phead"><h2 class="display" style="font-size:clamp(1.8rem,4vw,3rem)">07 · Photography</h2><span class="mono" style="color:var(--mut-l)">ONE HARD KEY LIGHT</span></div>
     <div class="swrow rv">
-      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="img/03.jpg" alt="Hard-lit megaphone with long shadow" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-megaphone/500/300'"></div><p>Single hard key · long graphic shadow</p></div>
-      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="img/04.jpg" alt="Matte black gears on black ground" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-gears/500/300'"></div><p>Matte black objects · seamless ground</p></div>
-      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="img/07.jpg" alt="Oversized cropped container on orange" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/500/300'"></div><p>Oversized · crops off the edge</p></div>
+      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop&q=80" alt="Hard-lit megaphone with long shadow" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-megaphone/500/300'"></div><p>Single hard key · long graphic shadow</p></div>
+      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=300&fit=crop&q=80" alt="Matte black gears on black ground" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-gears/500/300'"></div><p>Matte black objects · seamless ground</p></div>
+      <div class="sw"><div class="c" style="height:140px;overflow:hidden"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&h=300&fit=crop&q=80" alt="Oversized cropped container on orange" style="height:100%;width:100%;object-fit:cover" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/500/300'"></div><p>Oversized · crops off the edge</p></div>
     </div>
     <div class="no-no rv" style="--d:.08s;margin-top:14px;background:#fff;border-radius:16px;padding:10px 16px;border:1px solid var(--hair)">
       <span>Corporate stock — handshakes, café laptops</span><span>Illustration · 3D-render blobs</span><span>Neon circuits · blue holograms · robot hands</span><span>Bokeh lifestyle · multiple subjects</span>
@@ -644,46 +1158,75 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <div class="appcard"><div class="sig">Miftahul Islam Talha<br>FOUNDER · GALAXATECH<br>mail.galaxatech@gmail.com</div><p class="cap">Email signature · no quotes</p></div>
     </div>
   </section>
-  <section class="sec"><div class="duo">
-    <div class="panel bone rv"><h3 class="display" style="font-size:1.6rem;margin-bottom:12px">09 · Do</h3>
-      <ul class="blist"><li>Place the supplied master — scaled, never rebuilt</li><li>Full clearspace · 60/30/10 · Anton tight caps</li><li>2+ signature motifs · hard-lit oversized objects</li><li>Black text on orange · real empty space · short copy</li></ul></div>
-    <div class="panel bone rv" style="--d:.08s"><h3 class="display" style="font-size:1.6rem;margin-bottom:12px">09 · Don’t</h3>
-      <div class="no-no"><span>Redraw, rotate or distort the mark</span><span>Shadows, glows, gradients, rounded corners</span><span>Fourth colour · third font · new tagline</span><span>Orange body on cream · centred paragraphs · 4+ motifs</span></div></div>
-  </div></section>
-  <section class="sec"><div class="panel bone rv">
-    <h3 class="display" style="font-size:1.6rem;margin-bottom:14px">10 · Assets</h3>
-    <table class="btable">
-      <tr><td>Mark — transparent PNG, light</td><td>✓ Ready</td></tr>
-      <tr><td>Mark — transparent PNG, dark</td><td>✓ Ready</td></tr>
-      <tr><td>Mark — vector (SVG/AI/EPS)</td><td>Missing · critical</td></tr>
-      <tr><td>Lockups · favicon set · social templates</td><td>Missing · high</td></tr>
-      <tr><td>Deck · photography library · icon set</td><td>Missing · medium/low</td></tr>
-    </table>
-    <p style="color:var(--mut-l);font-size:13px;margin-top:12px">Vector rebuild must be done by a designer from the master — never auto-traced. Until then the transparent PNGs cover web, social, documents and small print.</p>
-  </div></section>
+  <section class="sec">
+    <div class="duo">
+      <div class="panel bone rv">
+        <h3 class="display" style="font-size:1.6rem;margin-bottom:12px">09 · Do</h3>
+        <ul class="blist">
+          <li>Place the supplied master — scaled, never rebuilt</li>
+          <li>Full clearspace · 60/30/10 · Anton tight caps</li>
+          <li>2+ signature motifs · hard-lit oversized objects</li>
+          <li>Black text on orange · real empty space · short copy</li>
+        </ul>
+      </div>
+      <div class="panel bone rv" style="--d:.08s">
+        <h3 class="display" style="font-size:1.6rem;margin-bottom:12px">09 · Don't</h3>
+        <div class="no-no">
+          <span>Redraw, rotate or distort the mark</span>
+          <span>Shadows, glows, gradients, rounded corners</span>
+          <span>Fourth colour · third font · new tagline</span>
+          <span>Orange body on cream · centred paragraphs · 4+ motifs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="panel bone rv">
+      <h3 class="display" style="font-size:1.6rem;margin-bottom:14px">10 · Assets</h3>
+      <table class="btable">
+        <tr><td>Mark — transparent PNG, light</td><td>✓ Ready</td></tr>
+        <tr><td>Mark — transparent PNG, dark</td><td>✓ Ready</td></tr>
+        <tr><td>Mark — vector (SVG/AI/EPS)</td><td>Missing · critical</td></tr>
+        <tr><td>Lockups · favicon set · social templates</td><td>Missing · high</td></tr>
+        <tr><td>Deck · photography library · icon set</td><td>Missing · medium/low</td></tr>
+      </table>
+      <p style="color:var(--mut-l);font-size:13px;margin-top:12px">Vector rebuild must be done by a designer from the master — never auto-traced. Until then the transparent PNGs cover web, social, documents and small print.</p>
+    </div>
+  </section>
 </div>
-<!-- NOTES -->
+
+<!-- ==================== NOTES ==================== -->
 <div class="page" id="pg-notes">
   <section class="sec">
-    <div class="phead"><div><span class="kick rv"><i></i>09 · FIELD NOTES</span><h1 class="display rv" style="margin-top:16px">Loud thinking, free.</h1></div></div>
+    <div class="phead">
+      <div>
+        <span class="kick rv"><i></i>09 · FIELD NOTES</span>
+        <h1 class="display rv" style="margin-top:16px">Loud thinking, free.</h1>
+      </div>
+    </div>
     <div class="lab-grid">
-      <article class="note-card rv"><span class="soon">SOON</span><h3>What a free audit actually checks</h3><p>The four layers we review — website, social, funnel, tracking — and what “plain findings” means.</p></article>
+      <article class="note-card rv"><span class="soon">SOON</span><h3>What a free audit actually checks</h3><p>The four layers we review — website, social, funnel, tracking — and what "plain findings" means.</p></article>
       <article class="note-card rv" style="--d:.08s"><span class="soon">SOON</span><h3>Website or web app: which do you need?</h3><p>The question most clients get wrong at the start, and the cheap way to answer it.</p></article>
       <article class="note-card rv" style="--d:.16s"><span class="soon">SOON</span><h3>AI automation: where to start</h3><p>Lead follow-up first. Always. The first workflow we automate for almost every business.</p></article>
     </div>
   </section>
 </div>
-<!-- LEGAL -->
+
+<!-- ==================== LEGAL ==================== -->
 <div class="page" id="pg-legal">
   <section class="sec legal">
     <span class="kick rv"><i></i>10 · LEGAL</span>
     <h1 class="display rv" style="font-size:clamp(2.4rem,6vw,5rem);margin:16px 0 8px">Plain terms.</h1>
-    <h3>Privacy</h3><p class="rv">We collect only what you send us — name, business, website, social handle, goal — and use it only to answer you and run your project. No selling data. No hidden trackers beyond standard analytics.</p>
-    <h3>Terms</h3><p class="rv">Every project runs on a written custom quotation with milestone-based payments in BDT or USD, flexible revisions, and a complimentary support window after delivery. Ongoing services beyond that window are paid. Agreements, invoices and proposals are in English.</p>
-    <h3>Questions</h3><p class="rv"><a class="mono" href="mailto:mail.galaxatech@gmail.com?subject=Legal%20question" style="color:var(--black);border-bottom:1px solid var(--black)">mail.galaxatech@gmail.com</a></p>
+    <h3>Privacy</h3>
+    <p class="rv">We collect only what you send us — name, business, website, social handle, goal — and use it only to answer you and run your project. No selling data. No hidden trackers beyond standard analytics.</p>
+    <h3>Terms</h3>
+    <p class="rv">Every project runs on a written custom quotation with milestone-based payments in BDT or USD, flexible revisions, and a complimentary support window after delivery. Ongoing services beyond that window are paid. Agreements, invoices and proposals are in English.</p>
+    <h3>Questions</h3>
+    <p class="rv"><a class="mono" href="mailto:mail.galaxatech@gmail.com?subject=Legal%20question" style="color:var(--black);border-bottom:1px solid var(--black)">mail.galaxatech@gmail.com</a></p>
   </section>
 </div>
 </main>
+
 <footer>
   <div class="flinks">
     <a href="#/home">HOME</a><a href="#/services">SERVICES</a><a href="#/work">WORK</a><a href="#/products">PRODUCTS</a>
@@ -696,113 +1239,248 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <span id="clock">--:--:-- DHAKA</span>
     <span>© 2026 GalaxaTech</span>
   </div>
-  <p class="fclose">LET’S BUILD WHAT’S NEXT. ▲</p>
+  <p class="fclose">LET'S BUILD WHAT'S NEXT. ▲</p>
 </footer>
 <div id="toast"></div>
+
 <script>
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const FINE=matchMedia('(pointer:fine)').matches;
-if(FINE&&!RM)document.body.classList.add('fine');
-let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
-const fav=document.getElementById('favicon');
-fav.addEventListener('error',()=>{fav.href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0B0B'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='900' font-size='28' fill='%23FF4D06' text-anchor='middle'%3EGT%3C/text%3E%3C/svg%3E";},{once:true});
-if(FINE&&!RM){
-  const c=document.getElementById('cur'),r=document.getElementById('curR');
-  let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;
-  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;});
-  (function loop(){x+=(tx-x)*.2;y+=(ty-y)*.2;c.style.transform=`translate(${x}px,${y}px)`;r.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(loop);})();
-  document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.pcard,.scard'))r.classList.add('big');});
-  document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.pcard,.scard'))r.classList.remove('big');});
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE = matchMedia('(pointer:fine)').matches;
+if (FINE && !RM) document.body.classList.add('fine');
+
+let tt;
+function toast(m) {
+  const t = document.getElementById('toast');
+  t.textContent = m;
+  t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(() => t.classList.remove('show'), 2200);
 }
-/* router + back + crumb */
-const PAGES={home:'pg-home',services:'pg-services',products:'pg-products',work:'pg-work',sisters:'pg-sisters',store:'pg-store',brand:'pg-brand',notes:'pg-notes',legal:'pg-legal'};
-const backBtn=document.getElementById('backBtn'),crumb=document.getElementById('crumb');
-backBtn.addEventListener('click',()=>{if(history.length>1)history.back();else location.hash='#/home';});
-function route(){
-  const h=(location.hash||'#/home').replace(/^#\/?/,'');
-  const [raw,anchor]=h.split('/');
-  const path=PAGES[raw]?raw:'home';
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+
+/* Favicon fallback */
+const fav = document.getElementById('favicon');
+fav.addEventListener('error', () => {
+  fav.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0B0B'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='900' font-size='28' fill='%23FF4D06' text-anchor='middle'%3EGT%3C/text%3E%3C/svg%3E";
+}, { once: true });
+
+/* Preloader */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('done');
+    setTimeout(() => {
+      scramble();
+      observeAll();
+    }, 300);
+  }, 1800);
+});
+
+/* Custom cursor */
+if (FINE && !RM) {
+  const c = document.getElementById('cur'), r = document.getElementById('curR');
+  let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  (function loop() {
+    x += (tx - x) * .2;
+    y += (ty - y) * .2;
+    c.style.transform = `translate(${x}px,${y}px)`;
+    r.style.transform = `translate(${x}px,${y}px)`;
+    requestAnimationFrame(loop);
+  })();
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a,button,.pcard,.scard,.spcard,.fwcard,.tcard')) r.classList.add('big');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a,button,.pcard,.scard,.spcard,.fwcard,.tcard')) r.classList.remove('big');
+  });
+}
+
+/* Router + back + crumb */
+const PAGES = {
+  home: 'pg-home', services: 'pg-services', products: 'pg-products',
+  work: 'pg-work', sisters: 'pg-sisters', store: 'pg-store',
+  brand: 'pg-brand', notes: 'pg-notes', legal: 'pg-legal'
+};
+const backBtn = document.getElementById('backBtn'), crumb = document.getElementById('crumb');
+backBtn.addEventListener('click', () => { if (history.length > 1) history.back(); else location.hash = '#/home'; });
+
+function route() {
+  const h = (location.hash || '#/home').replace(/^#\/?/, '');
+  const [raw, anchor] = h.split('/');
+  const path = PAGES[raw] ? raw : 'home';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(PAGES[path]).classList.add('active');
-  document.querySelectorAll('.nlinks a[data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===path));
-  backBtn.style.display=path==='home'?'none':'grid';
-  crumb.textContent='/ '+path.toUpperCase();
+  document.querySelectorAll('.nlinks a[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === path));
+  backBtn.style.display = path === 'home' ? 'none' : 'grid';
+  crumb.textContent = '/ ' + path.toUpperCase();
   closeSheet();
-  setTimeout(()=>{
-    if(anchor){const el=document.getElementById(anchor);if(el){el.scrollIntoView({behavior:RM?'auto':'smooth'});return;}}
-    scrollTo(0,0);
-    if(path==='home')scramble();
-  },60);
+  setTimeout(() => {
+    if (anchor) { const el = document.getElementById(anchor); if (el) { el.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }); return; } }
+    scrollTo(0, 0);
+    if (path === 'home') scramble();
+  }, 60);
   observeAll();
 }
-addEventListener('hashchange',route);
-/* sheet popup */
-const sheet=document.getElementById('sheet');
-function closeSheet(){sheet.classList.remove('open');document.body.classList.remove('lock');}
-document.getElementById('burger').addEventListener('click',()=>{const o=!sheet.classList.contains('open');sheet.classList.toggle('open',o);document.body.classList.toggle('lock',o);});
-document.getElementById('sheetX').addEventListener('click',closeSheet);
-sheet.addEventListener('click',e=>{if(e.target===sheet)closeSheet();});
-addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet();});
-sheet.querySelectorAll('a').forEach((a,i)=>{a.style.transitionDelay=(0.05+i*0.05)+'s';});
-/* reveals */
-let io;
-function observeAll(){
-  if(io)io.disconnect();
-  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
-  document.querySelectorAll('.page.active .rv,.page.active .lm,.page.active .wd,.page.active .pulse').forEach(el=>io.observe(el));
-}
-let scrDone=false;
-function scramble(){
-  const el=document.getElementById('scr');if(!el||RM||scrDone)return;scrDone=true;
-  const txt=el.dataset.txt,chars='#%&/<>✦';let f=0,total=46;
-  (function tick(){let out='';const pr=f/total;
-    for(let i=0;i<txt.length;i++){out+=i<pr*txt.length?txt[i]:chars[Math.random()*chars.length|0];}
-    el.textContent=out;if(f++<total)requestAnimationFrame(tick);else el.textContent=txt;})();
-}
-const cio=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;cio.unobserve(e.target);
-  const el=e.target,end=+el.dataset.n;
-  if(RM){el.textContent=end;return;}
-  const t0=performance.now();
-  (function s(t){const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(s);})(t0);
-}),{threshold:.6});
-document.querySelectorAll('[data-n]').forEach(el=>cio.observe(el));
-if(FINE&&!RM){
-  document.querySelectorAll('[data-tilt]').forEach(el=>{
-    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-      el.querySelector('.himg').style.transform=`perspective(900px) rotateY(${px*8}deg) rotateX(${-py*6}deg)`;});
-    el.addEventListener('mouseleave',()=>{el.querySelector('.himg').style.transform='perspective(900px)';});
-  });
-  document.querySelectorAll('.mag').forEach(b=>{
-    b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.2}px)`;});
-    b.addEventListener('mouseleave',()=>b.style.transform='');
-  });
-}
-const prog=document.getElementById('prog'),pfill=document.getElementById('pfill'),pline=document.getElementById('pline');
-addEventListener('scroll',()=>{
-  const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
-  if(pline&&document.getElementById('pg-services').classList.contains('active')){
-    const r=pline.getBoundingClientRect();
-    pfill.style.height=(Math.min(1,Math.max(0,(innerHeight*.7-r.top)/r.height))*100)+'%';
-  }
-},{passive:true});
-document.querySelectorAll('.dhead').forEach(h=>h.addEventListener('click',()=>{
-  const item=h.closest('.dacc'),body=item.querySelector('.dbody'),open=item.classList.contains('open');
-  document.querySelectorAll('.dacc.open').forEach(o=>{if(o!==item){o.classList.remove('open');o.querySelector('.dbody').style.maxHeight='0px';}});
-  item.classList.toggle('open',!open);
-  body.style.maxHeight=!open?body.scrollHeight+'px':'0px';
-}));
-document.getElementById('auditForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=new FormData(e.target);
-  const msg=`FREE AUDIT REQUEST — GalaxaTech\nName: ${f.get('name')}\nBusiness: ${f.get('biz')}\nWebsite: ${f.get('site')}\nGoal: ${f.get('goal')}`;
-  window.open('https://wa.me/8801824888701?text='+encodeURIComponent(msg),'_blank');
+addEventListener('hashchange', route);
+
+/* Sheet popup */
+const sheet = document.getElementById('sheet');
+function closeSheet() { sheet.classList.remove('open'); document.body.classList.remove('lock'); }
+document.getElementById('burger').addEventListener('click', () => {
+  const o = !sheet.classList.contains('open');
+  sheet.classList.toggle('open', o);
+  document.body.classList.toggle('lock', o);
 });
-const MD=`# GalaxaTech — Brand Guidelines v1.0\nEDITION 2026 · AI DIGITAL AGENCY\n\n## 01 Foundation\nName: GalaxaTech. Display: GALAXATECH. Descriptor: AI DIGITAL AGENCY.\nTaglines: Strategy That Drives Growth. · Build. Reach. Convert. Scale. · Let's build what's next. · Results That Speak.\n\n## 02 Voice\nConfident. Clear. Impactful. Short sentences. Outcome first. Numbers where they exist. Never hype what we haven't shipped.\n\n## 03 Logo\nNever redrawn. Clearspace = ribbon stroke. Minima: mark 24px/8mm, lockup 120px/30mm. Ghost 4-10% Sand, 6-12% Black, 8-15% Orange.\n\n## 04 Colour\n#0B0B0B · #F2ECE6 · #FF4D06 · ratio 60/30/10 · support tints E5DDD4 2A2A2A C9C1B8 3A3A3A.\n\n## 05 Type\nAnton display caps -1%/0.92 · Inter body 16-18 · JetBrains Mono labels 9-12 caps.\n\n## 06 Layout\nAsymmetry, hard edges, type top-left, cropped objects, 2-4 motifs, grid 12col/24px/1440, motion 150-250ms ease-out.\n\n## 07 Photography\nHard key light, long shadow, seamless ground, matte black objects, oversized crop.\n\n## 09 Rules\nDo: master placed, clearspace, 60/30/10, Anton caps, motifs, black on orange, asymmetry, short copy.\nDon't: redraw mark, rounded corners, fourth colour, new tagline, orange body on cream, stock meetings, centred paragraphs.\n`;
-document.getElementById('dlMd').addEventListener('click',()=>{const b=new Blob([MD],{type:'text/markdown'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='galaxatech-brand-guidelines-v1.md';a.click();});
-document.getElementById('dlPdf').addEventListener('click',()=>window.print());
-const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dhaka',hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});
-setInterval(()=>{document.getElementById('clock').textContent=fmt.format(new Date())+' DHAKA';},1000);
+document.getElementById('sheetX').addEventListener('click', closeSheet);
+sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+sheet.querySelectorAll('a').forEach((a, i) => { a.style.transitionDelay = (0.05 + i * 0.05) + 's'; });
+
+/* Nav scroll effect */
+const navbar = document.getElementById('navbar');
+addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', scrollY > 50);
+}, { passive: true });
+
+/* Reveals */
+let io;
+function observeAll() {
+  if (io) io.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.page.active .rv, .page.active .lm, .page.active .wd, .page.active .pulse, .page.active .scale-in').forEach(el => io.observe(el));
+}
+
+let scrDone = false;
+function scramble() {
+  const el = document.getElementById('scr');
+  if (!el || RM || scrDone) return;
+  scrDone = true;
+  const txt = el.dataset.txt, chars = '#%&/<>✦';
+  let f = 0, total = 46;
+  (function tick() {
+    let out = '';
+    const pr = f / total;
+    for (let i = 0; i < txt.length; i++) { out += i < pr * txt.length ? txt[i] : chars[Math.random() * chars.length | 0]; }
+    el.textContent = out;
+    if (f++ < total) requestAnimationFrame(tick);
+    else el.textContent = txt;
+  })();
+}
+
+/* Number counter */
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  cio.unobserve(e.target);
+  const el = e.target, end = +el.dataset.n;
+  if (RM) { el.textContent = end; return; }
+  const t0 = performance.now();
+  (function s(t) {
+    const p = Math.min(1, (t - t0) / 1400);
+    el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(s);
+  })(t0);
+}), { threshold: .6 });
+document.querySelectorAll('[data-n]').forEach(el => cio.observe(el));
+
+/* Tilt effect on hero */
+if (FINE && !RM) {
+  document.querySelectorAll('[data-tilt]').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.querySelector('.himg').style.transform = `perspective(900px) rotateY(${px * 8}deg) rotateX(${-py * 6}deg)`;
+    });
+    el.addEventListener('mouseleave', () => { el.querySelector('.himg').style.transform = 'perspective(900px)'; });
+  });
+  document.querySelectorAll('.mag').forEach(b => {
+    b.addEventListener('mousemove', e => {
+      const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .12}px,${(e.clientY - r.top - r.height / 2) * .2}px)`;
+    });
+    b.addEventListener('mouseleave', () => b.style.transform = '');
+  });
+}
+
+/* Progress bar + process line */
+const prog = document.getElementById('prog'), pfill = document.getElementById('pfill'), pline = document.getElementById('pline');
+const pfill2 = document.getElementById('pfill2'), pline2 = document.getElementById('pline2');
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  if (pline && document.getElementById('pg-home').classList.contains('active')) {
+    const r = pline.getBoundingClientRect();
+    pfill.style.height = (Math.min(1, Math.max(0, (innerHeight * .7 - r.top) / r.height)) * 100) + '%';
+  }
+  if (pline2 && document.getElementById('pg-services').classList.contains('active')) {
+    const r = pline2.getBoundingClientRect();
+    pfill2.style.height = (Math.min(1, Math.max(0, (innerHeight * .7 - r.top) / r.height)) * 100) + '%';
+  }
+}, { passive: true });
+
+/* Dossier accordion */
+document.querySelectorAll('.dhead').forEach(h => h.addEventListener('click', () => {
+  const item = h.closest('.dacc'), body = item.querySelector('.dbody'), open = item.classList.contains('open');
+  document.querySelectorAll('.dacc.open').forEach(o => { if (o !== item) { o.classList.remove('open'); o.querySelector('.dbody').style.maxHeight = '0px'; } });
+  item.classList.toggle('open', !open);
+  body.style.maxHeight = !open ? body.scrollHeight + 'px' : '0px';
+}));
+
+/* Audit form */
+document.getElementById('auditForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const msg = `FREE AUDIT REQUEST — GalaxaTech
+Name: ${f.get('name')}
+Business: ${f.get('biz')}
+Website: ${f.get('site')}
+Goal: ${f.get('goal')}`;
+  window.open('https://wa.me/8801824888701?text=' + encodeURIComponent(msg), '_blank');
+});
+
+/* Brand MD download */
+const MD = `# GalaxaTech — Brand Guidelines v1.0
+EDITION 2026 · AI DIGITAL AGENCY
+
+## 01 Foundation
+Name: GalaxaTech. Display: GALAXATECH. Descriptor: AI DIGITAL AGENCY.
+Taglines: Strategy That Drives Growth. · Build. Reach. Convert. Scale. · Let's build what's next. · Results That Speak.
+
+## 02 Voice
+Confident. Clear. Impactful. Short sentences. Outcome first. Numbers where they exist. Never hype what we haven't shipped.
+
+## 03 Logo
+Never redrawn. Clearspace = ribbon stroke. Minima: mark 24px/8mm, lockup 120px/30mm. Ghost 4-10% Sand, 6-12% Black, 8-15% Orange.
+
+## 04 Colour
+#0B0B0B · #F2ECE6 · #FF4D06 · ratio 60/30/10 · support tints E5DDD4 2A2A2A C9C1B8 3A3A3A.
+
+## 05 Type
+Anton display caps -1%/0.92 · Inter body 16-18 · JetBrains Mono labels 9-12 caps.
+
+## 06 Layout
+Asymmetry, hard edges, type top-left, cropped objects, 2-4 motifs, grid 12col/24px/1440, motion 150-250ms ease-out.
+
+## 07 Photography
+Hard key light, long shadow, seamless ground, matte black objects, oversized crop.
+
+## 09 Rules
+Do: master placed, clearspace, 60/30/10, Anton caps, motifs, black on orange, asymmetry, short copy.
+Don't: redraw mark, rounded corners, fourth colour, new tagline, orange body on cream, stock meetings, centred paragraphs.
+`;
+document.getElementById('dlMd').addEventListener('click', () => {
+  const b = new Blob([MD], { type: 'text/markdown' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b);
+  a.download = 'galaxatech-brand-guidelines-v1.md';
+  a.click();
+});
+document.getElementById('dlPdf').addEventListener('click', () => window.print());
+
+/* Dhaka clock */
+const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dhaka', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+setInterval(() => { document.getElementById('clock').textContent = fmt.format(new Date()) + ' DHAKA'; }, 1000);
+
+/* Init */
 route();
 </script>
 </body>
