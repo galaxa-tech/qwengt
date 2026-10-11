@@ -8,8 +8,8 @@
 <meta property="og:title" content="GALAXATECH — AI Digital Agency">
 <meta property="og:description" content="We build, grow, automate and manage digital ecosystems. Strategy that drives growth.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop">
-<link rel="icon" id="favicon" href="img/mark-light.png">
+<meta property="og:image" content="https://galaxa-tech.github.io/qwengt/img/og.png">
+<link rel="icon" id="favicon" href="img/mark-sm.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -63,7 +63,7 @@ body.fine #cur,body.fine #curR{display:block}body.fine,body.fine a,body.fine but
 .nav.scrolled{background:rgba(242,236,230,.92);border-color:rgba(255,255,255,.85)}
 .nleft{display:flex;align-items:center;gap:10px;min-width:0}
 .nbrand{display:flex;align-items:center;gap:10px}
-.nbrand .mk{width:36px;height:36px;border-radius:12px;background:var(--black);color:var(--sand);display:grid;place-items:center;font-family:var(--anton);font-size:13px;flex:0 0 auto;transition:transform .3s var(--ease)}
+.nbrand .mk{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:0 0 auto;transition:transform .3s var(--ease)}
 .nbrand:hover .mk{transform:rotate(-8deg) scale(1.05)}
 .nbrand b{font:800 14px/1 var(--inter);letter-spacing:.05em}
 .nbrand em{display:block;font:500 7.5px/1.6 var(--mono);letter-spacing:.26em;color:var(--orange);font-style:normal}
@@ -562,6 +562,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 
 <!-- Preloader -->
 <div id="preloader">
+  <img src="img/mark-sm.png" alt="" width="84" height="84" style="border-radius:50%">
   <div class="plogo">GALAXA<i>TECH</i></div>
   <div class="pline"><i></i></div>
 </div>
@@ -573,7 +574,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
 <nav class="nav" id="navbar">
   <div class="nleft">
     <button class="ncirc g" id="backBtn" aria-label="Go back" style="display:none">←</button>
-    <a class="nbrand" href="#/home"><span class="mk">GT</span><span><b>GALAXATECH</b><em>AI DIGITAL AGENCY</em></span></a>
+    <a class="nbrand" href="#/home"><img class="mk" src="img/mark-sm.png" alt="GalaxaTech logo" width="36" height="36"><span><b>GALAXATECH</b><em>AI DIGITAL AGENCY</em></span></a>
     <span class="crumb" id="crumb">/ HOME</span>
   </div>
   <div class="nlinks">
@@ -631,12 +632,10 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
         </h1>
         <p class="lead rv" style="--d:.4s">Web, marketing, automation and finance. One team. One system. Measured in your numbers — not in vibes.</p>
         <div class="ctas rv" style="--d:.45s">
-          <a class="btn o mag" href="#/home/audit"><span class="shine"></span>Start a project ↗</a>
+          <a class="btn o mag" href="#/home/audit"><span class="shine"></span>Get your free audit ↗</a>
           <a class="btn g mag" href="#/work">See the work</a>
         </div>
         <div class="micro rv" style="--d:.5s">
-          <span><b>EST.</b> 2022</span>
-          <span><b>6</b> MARKETS</span>
           <span><b>4</b> ENGINES</span>
           <span><b>BDT · USD</b></span>
         </div>
@@ -646,13 +645,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
           <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&h=1100&fit=crop&q=80" alt="Abstract matte black 3D ribbon sculpture on seamless ground" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-ribbon/900/1100'">
         </figure>
         <div class="stick">STRATEGY THAT<br><b>DRIVES GROWTH.</b></div>
-        <div class="pulse rv" style="--d:.5s">
-          <div class="t"><span>LIVE PULSE · CITYMATE</span><i></i></div>
-          <div class="big">DAY 12<i>/30</i></div>
-          <div class="pbar"><i></i></div>
-          <div class="ms"><span class="hot">M1 PAID</span><span>M2 REVIEW</span><span>M3 LOCKED</span></div>
-        </div>
-      </div>
+</div>
     </div>
   </header>
 
@@ -664,13 +657,32 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     </div>
   </div>
 
+  <!-- Audit CTA -->
+  <section class="sec" id="audit">
+    <div class="audit rv">
+      <div>
+        <h2 class="display">Free<br>audit.</h2>
+        <p class="voice">Your traffic is fine. Your conversion isn't. Let's find the leaks.</p>
+        <p class="sub">We review your website and social pages, then send plain, actionable findings. No obligation. No hype.</p>
+      </div>
+      <form class="aform" id="auditForm">
+        <label>Name *<input required name="name" placeholder="Your name"></label>
+        <label>Business *<input required name="biz" placeholder="Company / brand"></label>
+        <label>Website *<input required name="site" type="url" placeholder="https://…"></label>
+        <label>Goal<select name="goal"><option>More leads</option><option>More sales</option><option>Better website</option><option>Automation</option></select></label>
+        <button class="btn k" type="submit">Send via WhatsApp →</button>
+        <p class="alt">or <a href="mailto:mail.galaxatech@gmail.com?subject=Free%20Audit">email instead</a></p>
+      </form>
+    </div>
+  </section>
+
   <!-- Trust bar -->
   <section class="trust">
-    <p class="trust-label rv">Trusted by teams across 6 markets</p>
+    <p class="trust-label rv">Some of the teams we work with</p>
     <div class="tmarquee rv">
       <div class="ttrack">
-        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span><span>CHSN Collective</span><span>✦</span>
-        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span><span>CHSN Collective</span><span>✦</span>
+        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span>
+        <span>Sunnah Grandeur</span><span>✦</span><span>Harmans Trading</span><span>✦</span><span>Salfas Bazar</span><span>✦</span><span>Citymate Hostel</span><span>✦</span>
       </div>
     </div>
   </section>
@@ -690,30 +702,8 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       </div>
       <div class="dcard light rv" style="--d:.08s">
         <h3 class="display">Clients that <span class="boxhl">choose us</span></h3>
-        <div class="av"><span>C</span><span>H</span><span>S</span><span>N</span></div>
+        
         <a class="mono" href="#/work" style="color:var(--black)">See the work ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="sec">
-    <div class="stats rv">
-      <div class="stat">
-        <div class="n"><span data-n="6">0</span><i>+</i></div>
-        <p>Markets · USA UK UAE PK IN BD</p>
-      </div>
-      <div class="stat">
-        <div class="n"><span data-n="4">0</span><i>.</i></div>
-        <p>Engines · Build Grow Automate Manage</p>
-      </div>
-      <div class="stat">
-        <div class="n"><span data-n="3">0</span><i>×</i></div>
-        <p>Milestones · payment at each</p>
-      </div>
-      <div class="stat">
-        <div class="n"><span data-n="30">0</span><i>d</i></div>
-        <p>Typical sprint · kickoff to launch</p>
       </div>
     </div>
   </section>
@@ -736,7 +726,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       </a>
       <a class="spcard rv" href="#/services" style="--d:.06s">
         <div class="num">/02</div>
-        <h3>Digital<br>Marketing</h3>
+        <h3>AI Digital<br>Marketing</h3>
         <p>Attention into pipeline. Creative tested like a lab.</p>
         <div class="arrow">↗</div>
       </a>
@@ -748,8 +738,8 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       </a>
       <a class="spcard rv" href="#/services" style="--d:.18s">
         <div class="num">/04</div>
-        <h3>Operations &<br>Finance</h3>
-        <p>Maintenance, optimisation, analytics — useful after launch.</p>
+        <h3>Digital<br>Finance</h3>
+        <p>Clear money systems: tracking, billing and reporting for your business.</p>
         <div class="arrow">↗</div>
       </a>
     </div>
@@ -804,52 +794,6 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="sec">
-    <div class="phead">
-      <div>
-        <span class="kick rv"><i></i>CLIENT WORDS</span>
-        <h2 class="display rv" style="margin-top:16px">Don't take our word.</h2>
-      </div>
-    </div>
-    <div class="twrap rv">
-      <div class="tslider" id="tslider">
-        <div class="tcard">
-          <q>GalaxaTech built our entire digital presence from scratch. The website, the app, the backend — everything talks to each other. Revenue is up 40% since launch.</q>
-          <div class="tfoot">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
-            <div><b>Rafiq Hossain</b><span>Founder, Sunnah Grandeur</span></div>
-          </div>
-        </div>
-        <div class="tcard">
-          <q>They don't just build websites — they build systems that make money. The automation alone saves us 15 hours a week.</q>
-          <div class="tfoot">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
-            <div><b>Tariq Islam</b><span>Director, Harmans Trading</span></div>
-          </div>
-        </div>
-        <div class="tcard">
-          <q>Fast, mechanical, no drama. They delivered our e-commerce site in 18 days. Payment at milestones meant zero risk for us.</q>
-          <div class="tfoot">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
-            <div><b>Farhana Ahmed</b><span>Owner, Salfas Bazar</span></div>
-          </div>
-        </div>
-        <div class="tcard">
-          <q>From branding to a full hostel management app — one team, one invoice, one point of contact. That's how agencies should work.</q>
-          <div class="tfoot">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Client avatar" onerror="this.style.display='none'">
-            <div><b>Mohsin Khan</b><span>CEO, Citymate Hostel BD</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="tnav">
-        <button onclick="document.getElementById('tslider').scrollBy({left:-400,behavior:'smooth'})" aria-label="Previous">←</button>
-        <button onclick="document.getElementById('tslider').scrollBy({left:400,behavior:'smooth'})" aria-label="Next">→</button>
-      </div>
-    </div>
-  </section>
-
   <!-- Philosophy -->
   <section class="sec">
     <div class="panel dark rv">
@@ -877,25 +821,6 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
         <div class="step rv"><span class="n">04</span><h3>Launch</h3><p>Deployment, checks, handover. Clean. Complimentary support window starts.</p></div>
         <div class="step rv"><span class="n">05</span><h3>Scale</h3><p>Marketing, automation, maintenance. The relationship compounds after launch.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Audit CTA -->
-  <section class="sec" id="audit">
-    <div class="audit rv">
-      <div>
-        <h2 class="display">Free<br>audit.</h2>
-        <p class="voice">Your traffic is fine. Your conversion isn't. Let's find the leaks.</p>
-        <p class="sub">We review your website and social pages, then send plain, actionable findings. No obligation. No hype.</p>
-      </div>
-      <form class="aform" id="auditForm">
-        <label>Name *<input required name="name" placeholder="Your name"></label>
-        <label>Business *<input required name="biz" placeholder="Company / brand"></label>
-        <label>Website *<input required name="site" type="url" placeholder="https://…"></label>
-        <label>Goal<select name="goal"><option>More leads</option><option>More sales</option><option>Better website</option><option>Automation</option></select></label>
-        <button class="btn k" type="submit">Send via WhatsApp →</button>
-        <p class="alt">or <a href="mailto:mail.galaxatech@gmail.com?subject=Free%20Audit">email instead</a></p>
-      </form>
     </div>
   </section>
 
@@ -927,7 +852,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <article class="scard orange" style="--i:1">
         <div>
           <span class="idx">/02 — GROW</span>
-          <h3>Digital Marketing</h3>
+          <h3>AI Digital Marketing</h3>
           <p>Attention into pipeline. Creative tested like a lab; losers killed fast.</p>
           <ul class="chips"><li>SEO</li><li>SMM</li><li>Paid ads</li><li>Content</li></ul>
         </div>
@@ -951,7 +876,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <article class="scard dark" style="--i:3">
         <div>
           <span class="idx">/04 — MANAGE</span>
-          <h3>Operations & Finance</h3>
+          <h3>Digital Finance</h3>
           <p>Maintenance, optimisation, analytics — and the emerging finance stack. Useful after launch, on purpose.</p>
           <ul class="chips"><li>Maintenance</li><li>Optimization</li><li>Analytics</li></ul>
         </div>
@@ -1122,109 +1047,20 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <div class="cs-content">
       <span class="cs-tag">DIGITAL ECOSYSTEM</span>
       <h1>Sunnah<br>Grandeur</h1>
-      <p class="cs-lead">A full digital ecosystem for a premium real estate and lifestyle brand — website, mobile app, backend, and brand identity built as one connected system.</p>
-      <div class="cs-meta">
-        <div><span class="lbl">CLIENT</span><span class="val">Sunnah Grandeur</span></div>
-        <div><span class="lbl">INDUSTRY</span><span class="val">Real Estate & Lifestyle</span></div>
-        <div><span class="lbl">SERVICES</span><span class="val">Web · App · Branding · Automation</span></div>
-        <div><span class="lbl">DURATION</span><span class="val">8 weeks</span></div>
-        <div><span class="lbl">YEAR</span><span class="val">2025</span></div>
-      </div>
+      <p class="cs-lead">Full case study coming soon.</p>
     </div>
   </header>
 
   <section class="cs-section">
-    <div class="cs-grid">
-      <div class="cs-body">
-        <span class="cs-label">01 · THE CHALLENGE</span>
-        <h2>Everything was scattered.</h2>
-        <p>Sunnah Grandeur had a vision — premium real estate, lifestyle properties, and a community-driven brand. But their digital presence was fragmented. A basic website that didn't convert. No mobile presence. Leads coming through WhatsApp with no tracking. Manual follow-ups falling through the cracks.</p>
-        <p>They needed one system where prospects could browse properties, book viewings, make enquiries, and receive automated follow-ups — all while the internal team had full visibility into the pipeline.</p>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=675&fit=crop&q=80" alt="Before state" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-arch/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-grid reverse">
-      <div class="cs-body">
-        <span class="cs-label">02 · THE STRATEGY</span>
-        <h2>One ecosystem. Not three apps.</h2>
-        <p>Instead of building a website, an app, and a CRM separately, we designed one connected system. The website serves as the front door. The app handles mobile engagement. The backend powers everything behind the scenes.</p>
-        <p>We mapped the full customer journey — from first visit to property booking to post-purchase communication — and built automations at every drop-off point.</p>
-        <ul class="chips" style="margin-top:18px">
-          <li>Property listings with smart filters</li>
-          <li>Booking system with calendar sync</li>
-          <li>Lead capture with auto-segmentation</li>
-          <li>WhatsApp automation for follow-ups</li>
-          <li>Admin dashboard with analytics</li>
-        </ul>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=675&fit=crop&q=80" alt="Strategy workshop" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-strategy/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">03 · THE BUILD</span>
-    <h2>What we shipped.</h2>
-    <div class="cs-gallery">
-      <figure class="wide">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Website dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash/1400/600'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&h=440&fit=crop&q=80" alt="Mobile app interface" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-mobile/700/440'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=440&fit=crop&q=80" alt="Admin panel" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-admin/700/440'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">04 · RESULTS</span>
-    <h2>Numbers that matter.</h2>
-    <div class="cs-metrics">
-      <div class="cs-metric rv">
-        <div class="num">+<span data-n="40">0</span><i>%</i></div>
-        <p>Revenue increase within 3 months of launch</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.08s">
-        <div class="num"><span data-n="3">0</span><i>x</i></div>
-        <p>Faster lead response time with automation</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.16s">
-        <div class="num"><span data-n="85">0</span><i>%</i></div>
-        <p>Reduction in manual follow-up tasks</p>
-      </div>
-    </div>
-    <div class="cs-quote rv">
-      <q>GalaxaTech built our entire digital presence from scratch. The website, the app, the backend — everything talks to each other. Revenue is up 40% since launch.</q>
-      <div class="cs-qfoot">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Rafiq Hossain" onerror="this.style.display='none'">
-        <div><b>Rafiq Hossain</b><span>Founder, Sunnah Grandeur</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">05 · TECH STACK</span>
-    <h2>Built with.</h2>
-    <ul class="chips" style="margin-top:16px">
-      <li>React</li><li>Node.js</li><li>MongoDB</li><li>AWS</li><li>WhatsApp API</li><li>Stripe</li><li>Figma</li>
-    </ul>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-cta rv">
+    <span class="cs-label">CASE STUDY</span>
+    <h2>Full details coming soon.</h2>
+    <p style="max-width:56ch;margin-top:14px">We are preparing the full story for this project. Want to know more now? Ask us directly and we will share what we can.</p>
+    <div class="cs-cta rv" style="margin-top:28px">
       <div>
         <h3>Want results like this?</h3>
-        <p>We build ecosystems — not just websites. Let's talk about your project.</p>
+        <p>Start with a free audit of your website or online business.</p>
       </div>
-      <a class="btn k" href="#/home/audit">Start a project →</a>
+      <a class="btn k" href="#/home/audit">Get your free audit →</a>
     </div>
     <div style="text-align:center;margin-top:24px">
       <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
@@ -1241,109 +1077,20 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <div class="cs-content">
       <span class="cs-tag">DELIVERED PROJECT</span>
       <h1>Harmans<br>Trading</h1>
-      <p class="cs-lead">A complete digital transformation for a trading company — from offline spreadsheets to a fully automated order and inventory system.</p>
-      <div class="cs-meta">
-        <div><span class="lbl">CLIENT</span><span class="val">Harmans Trading</span></div>
-        <div><span class="lbl">INDUSTRY</span><span class="val">Import / Export Trading</span></div>
-        <div><span class="lbl">SERVICES</span><span class="val">Web · Automation · CRM</span></div>
-        <div><span class="lbl">DURATION</span><span class="val">6 weeks</span></div>
-        <div><span class="lbl">YEAR</span><span class="val">2024</span></div>
-      </div>
+      <p class="cs-lead">Full case study coming soon.</p>
     </div>
   </header>
 
   <section class="cs-section">
-    <div class="cs-grid">
-      <div class="cs-body">
-        <span class="cs-label">01 · THE CHALLENGE</span>
-        <h2>Running on spreadsheets and phone calls.</h2>
-        <p>Harmans Trading managed hundreds of SKUs across multiple suppliers and buyers using Excel sheets and WhatsApp messages. Orders were missed. Stock levels were always wrong. Invoicing took days. The team was reactive instead of proactive.</p>
-        <p>They needed a system that could handle the full trading cycle — from purchase orders to inventory tracking to client invoicing — without hiring a tech team.</p>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&h=675&fit=crop&q=80" alt="Trading operations" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-container/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-grid reverse">
-      <div class="cs-body">
-        <span class="cs-label">02 · THE STRATEGY</span>
-        <h2>Automate the repetitive. Track everything.</h2>
-        <p>We built a custom trading portal that replaced their spreadsheet workflow. Purchase orders auto-generate from low-stock alerts. Client orders flow directly into invoicing. The CRM tracks every interaction so no lead goes cold.</p>
-        <p>The key was making it simple enough that the existing team could use it on day one — no training manuals, no complexity.</p>
-        <ul class="chips" style="margin-top:18px">
-          <li>Purchase order automation</li>
-          <li>Real-time inventory tracking</li>
-          <li>Client portal with order history</li>
-          <li>Auto-invoicing with PDF generation</li>
-          <li>Supplier management dashboard</li>
-        </ul>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=900&h=675&fit=crop&q=80" alt="System design" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-trade/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">03 · THE BUILD</span>
-    <h2>What we shipped.</h2>
-    <div class="cs-gallery">
-      <figure class="wide">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Trading dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash2/1400/600'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=700&h=440&fit=crop&q=80" alt="Invoice system" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-invoice/700/440'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=440&fit=crop&q=80" alt="Inventory view" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-inventory/700/440'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">04 · RESULTS</span>
-    <h2>Numbers that matter.</h2>
-    <div class="cs-metrics">
-      <div class="cs-metric rv">
-        <div class="num"><span data-n="15">0</span><i>h</i></div>
-        <p>Saved per week through automation</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.08s">
-        <div class="num"><span data-n="100">0</span><i>%</i></div>
-        <p>Order accuracy after system launch</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.16s">
-        <div class="num"><span data-n="50">0</span><i>%</i></div>
-        <p>Faster invoice generation</p>
-      </div>
-    </div>
-    <div class="cs-quote rv">
-      <q>They don't just build websites — they build systems that make money. The automation alone saves us 15 hours a week.</q>
-      <div class="cs-qfoot">
-        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Tariq Islam" onerror="this.style.display='none'">
-        <div><b>Tariq Islam</b><span>Director, Harmans Trading</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">05 · TECH STACK</span>
-    <h2>Built with.</h2>
-    <ul class="chips" style="margin-top:16px">
-      <li>Next.js</li><li>PostgreSQL</li><li>Prisma</li><li>Vercel</li><li>WhatsApp API</li><li>PDFKit</li><li>Tailwind</li>
-    </ul>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-cta rv">
+    <span class="cs-label">CASE STUDY</span>
+    <h2>Full details coming soon.</h2>
+    <p style="max-width:56ch;margin-top:14px">We are preparing the full story for this project. Want to know more now? Ask us directly and we will share what we can.</p>
+    <div class="cs-cta rv" style="margin-top:28px">
       <div>
         <h3>Want results like this?</h3>
-        <p>We build systems that make money. Let's talk about your project.</p>
+        <p>Start with a free audit of your website or online business.</p>
       </div>
-      <a class="btn k" href="#/home/audit">Start a project →</a>
+      <a class="btn k" href="#/home/audit">Get your free audit →</a>
     </div>
     <div style="text-align:center;margin-top:24px">
       <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
@@ -1360,109 +1107,20 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <div class="cs-content">
       <span class="cs-tag">DELIVERED PROJECT</span>
       <h1>Salfas<br>Bazar</h1>
-      <p class="cs-lead">An e-commerce presence for an organic food business — built to sell, not just exist. From zero online sales to a fully operational digital store in 18 days.</p>
-      <div class="cs-meta">
-        <div><span class="lbl">CLIENT</span><span class="val">Salfas Bazar</span></div>
-        <div><span class="lbl">INDUSTRY</span><span class="val">Organic Food & Grocery</span></div>
-        <div><span class="lbl">SERVICES</span><span class="val">E-commerce · Branding · Content</span></div>
-        <div><span class="lbl">DURATION</span><span class="val">18 days</span></div>
-        <div><span class="lbl">YEAR</span><span class="val">2024</span></div>
-      </div>
+      <p class="cs-lead">Full case study coming soon.</p>
     </div>
   </header>
 
   <section class="cs-section">
-    <div class="cs-grid">
-      <div class="cs-body">
-        <span class="cs-label">01 · THE CHALLENGE</span>
-        <h2>Great products. Zero online presence.</h2>
-        <p>Salfas Bazar had loyal customers at their physical store and farmer's market stalls. But they had no way to reach new customers online. No website. No ordering system. Instagram posts with "DM to order" that went unanswered half the time.</p>
-        <p>They needed an e-commerce site that felt as fresh and trustworthy as their organic products — fast, because the seasonal harvest window was closing.</p>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&h=675&fit=crop&q=80" alt="Organic products" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-crate/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-grid reverse">
-      <div class="cs-body">
-        <span class="cs-label">02 · THE STRATEGY</span>
-        <h2>Sell the story. Make ordering effortless.</h2>
-        <p>We built a clean, fast e-commerce site that puts the products front and center. Every item has a story — farm origin, harvest date, health benefits. The checkout is two clicks. Payment options include bKash, Nagad, and card.</p>
-        <p>We also set up automated order confirmations and delivery tracking so customers always know where their order is.</p>
-        <ul class="chips" style="margin-top:18px">
-          <li>Product catalog with filtering</li>
-          <li>Fast checkout (2-click)</li>
-          <li>bKash / Nagad / Card payments</li>
-          <li>Order tracking system</li>
-          <li>SEO-optimized product pages</li>
-        </ul>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=900&h=675&fit=crop&q=80" alt="Food photography" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-food/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">03 · THE BUILD</span>
-    <h2>What we shipped.</h2>
-    <div class="cs-gallery">
-      <figure class="wide">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=1400&h=600&fit=crop&q=80" alt="Store homepage" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-store/1400/600'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=440&fit=crop&q=80" alt="Product page" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-product/700/440'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=440&fit=crop&q=80" alt="Checkout flow" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-checkout/700/440'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">04 · RESULTS</span>
-    <h2>Numbers that matter.</h2>
-    <div class="cs-metrics">
-      <div class="cs-metric rv">
-        <div class="num"><span data-n="18">0</span><i>d</i></div>
-        <p>From kickoff to live store</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.08s">
-        <div class="num"><span data-n="250">0</span><i>+</i></div>
-        <p>Online orders in first month</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.16s">
-        <div class="num"><span data-n="3">0</span><i>x</i></div>
-        <p>Return customer rate</p>
-      </div>
-    </div>
-    <div class="cs-quote rv">
-      <q>Fast, mechanical, no drama. They delivered our e-commerce site in 18 days. Payment at milestones meant zero risk for us.</q>
-      <div class="cs-qfoot">
-        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Farhana Ahmed" onerror="this.style.display='none'">
-        <div><b>Farhana Ahmed</b><span>Owner, Salfas Bazar</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">05 · TECH STACK</span>
-    <h2>Built with.</h2>
-    <ul class="chips" style="margin-top:16px">
-      <li>Shopify</li><li>Custom Theme</li><li>Liquid</li><li>JavaScript</li><li>bKash API</li><li>Meta Pixel</li><li>Google Analytics</li>
-    </ul>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-cta rv">
+    <span class="cs-label">CASE STUDY</span>
+    <h2>Full details coming soon.</h2>
+    <p style="max-width:56ch;margin-top:14px">We are preparing the full story for this project. Want to know more now? Ask us directly and we will share what we can.</p>
+    <div class="cs-cta rv" style="margin-top:28px">
       <div>
         <h3>Want results like this?</h3>
-        <p>We build stores that sell. Let's talk about your project.</p>
+        <p>Start with a free audit of your website or online business.</p>
       </div>
-      <a class="btn k" href="#/home/audit">Start a project →</a>
+      <a class="btn k" href="#/home/audit">Get your free audit →</a>
     </div>
     <div style="text-align:center;margin-top:24px">
       <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
@@ -1479,110 +1137,20 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
     <div class="cs-content">
       <span class="cs-tag">RUNNING PROJECT</span>
       <h1>Citymate<br>Hostel BD</h1>
-      <p class="cs-lead">A complete digital ecosystem for a hostel chain — branding, website, mobile app, and management system. One team. One build. One invoice.</p>
-      <div class="cs-meta">
-        <div><span class="lbl">CLIENT</span><span class="val">Citymate Hostel BD</span></div>
-        <div><span class="lbl">INDUSTRY</span><span class="val">Hospitality & Accommodation</span></div>
-        <div><span class="lbl">SERVICES</span><span class="val">Branding · Web · App · Mgmt</span></div>
-        <div><span class="lbl">DURATION</span><span class="val">12 weeks</span></div>
-        <div><span class="lbl">YEAR</span><span class="val">2025</span></div>
-      </div>
+      <p class="cs-lead">Full case study coming soon.</p>
     </div>
   </header>
 
   <section class="cs-section">
-    <div class="cs-grid">
-      <div class="cs-body">
-        <span class="cs-label">01 · THE CHALLENGE</span>
-        <h2>Running a hostel on notebooks and phone calls.</h2>
-        <p>Citymate Hostel was growing — multiple locations, increasing bookings, expanding staff. But everything was manual. Room availability tracked in notebooks. Bookings taken over phone. Payments collected in cash with no record. Staff schedules on WhatsApp.</p>
-        <p>They needed a system that could handle bookings, payments, room management, staff scheduling, and guest communication — all in one place, accessible from anywhere.</p>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&h=675&fit=crop&q=80" alt="Hostel interior" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-keycard/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-grid reverse">
-      <div class="cs-body">
-        <span class="cs-label">02 · THE STRATEGY</span>
-        <h2>One platform for guests. One dashboard for staff.</h2>
-        <p>We built a three-part system: a guest-facing website for bookings and payments, a mobile app for guests to manage their stays, and an admin dashboard for the hostel team to manage rooms, staff, and finances.</p>
-        <p>Every booking auto-syncs across all three. Guests get WhatsApp confirmations and check-in codes. Staff see real-time room status. Management gets daily revenue reports.</p>
-        <ul class="chips" style="margin-top:18px">
-          <li>Online booking with real-time availability</li>
-          <li>Mobile app for guests</li>
-          <li>Admin dashboard for staff</li>
-          <li>Automated WhatsApp confirmations</li>
-          <li>Digital check-in / check-out</li>
-          <li>Revenue analytics & reporting</li>
-        </ul>
-      </div>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&h=675&fit=crop&q=80" alt="Team meeting" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-meeting/900/675'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">03 · THE BUILD</span>
-    <h2>What we shipped.</h2>
-    <div class="cs-gallery">
-      <figure class="wide">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80" alt="Management dashboard" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-dash3/1400/600'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&h=440&fit=crop&q=80" alt="Guest mobile app" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-app/700/440'">
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=440&fit=crop&q=80" alt="Booking website" onerror="this.onerror=null;this.classList.add('fb');this.src='https://picsum.photos/seed/gt-booking/700/440'">
-      </figure>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">04 · RESULTS</span>
-    <h2>Numbers that matter.</h2>
-    <div class="cs-metrics">
-      <div class="cs-metric rv">
-        <div class="num"><span data-n="60">0</span><i>%</i></div>
-        <p>Increase in direct bookings (vs OTA commissions)</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.08s">
-        <div class="num"><span data-n="90">0</span><i>%</i></div>
-        <p>Reduction in manual check-in time</p>
-      </div>
-      <div class="cs-metric rv" style="--d:.16s">
-        <div class="num"><span data-n="24">0</span><i>/7</i></div>
-        <p>Automated booking system running</p>
-      </div>
-    </div>
-    <div class="cs-quote rv">
-      <q>From branding to a full hostel management app — one team, one invoice, one point of contact. That's how agencies should work.</q>
-      <div class="cs-qfoot">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Mohsin Khan" onerror="this.style.display='none'">
-        <div><b>Mohsin Khan</b><span>CEO, Citymate Hostel BD</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cs-section">
-    <span class="cs-label">05 · TECH STACK</span>
-    <h2>Built with.</h2>
-    <ul class="chips" style="margin-top:16px">
-      <li>React</li><li>React Native</li><li>Node.js</li><li>PostgreSQL</li><li>Redis</li><li>AWS</li><li>WhatsApp API</li><li>Stripe</li>
-    </ul>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-cta rv">
+    <span class="cs-label">CASE STUDY</span>
+    <h2>Full details coming soon.</h2>
+    <p style="max-width:56ch;margin-top:14px">We are preparing the full story for this project. Want to know more now? Ask us directly and we will share what we can.</p>
+    <div class="cs-cta rv" style="margin-top:28px">
       <div>
         <h3>Want results like this?</h3>
-        <p>We build ecosystems — not just websites. Let's talk about your project.</p>
+        <p>Start with a free audit of your website or online business.</p>
       </div>
-      <a class="btn k" href="#/home/audit">Start a project →</a>
+      <a class="btn k" href="#/home/audit">Get your free audit →</a>
     </div>
     <div style="text-align:center;margin-top:24px">
       <a class="mono" href="#/work" style="color:var(--mut-l)">← Back to all work</a>
@@ -1601,8 +1169,6 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
       <div class="con-meta rv" style="--d:.15s">
         <div><span class="lbl">EMAIL</span><span class="val">mail.galaxatech@gmail.com</span></div>
         <div><span class="lbl">WHATSAPP</span><span class="val">+880 1824-888701</span></div>
-        <div><span class="lbl">RESPONSE TIME</span><span class="val">Under 4 hours</span></div>
-        <div><span class="lbl">HOURS</span><span class="val">Sat–Thu · 9:00–21:00 BDT</span></div>
       </div>
     </div>
   </header>
@@ -1620,7 +1186,7 @@ footer{margin:60px var(--gut) 16px;background:var(--black);color:var(--sand);bor
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
         <h3>WhatsApp</h3>
-        <p>The fastest way. Send a message, get a reply in under 4 hours. Share files, voice notes, screenshots — whatever works.</p>
+        <p>The fastest way. Send a message and we will reply. Share files, voice notes, screenshots — whatever works.</p>
         <span class="con-link">Message now →</span>
       </a>
 
