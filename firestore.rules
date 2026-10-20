@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Website forms: anyone may CREATE one request; nobody can read, change or delete from the browser.
+    // Read requests in the Firebase console (Firestore Database) while signed in as the owner.
+    function validRequest(d) {
+      return d.keys().hasOnly(['name', 'email', 'business', 'website', 'whatsapp', 'service', 'message', 'source', 'page', 'createdAt'])
+        && d.keys().hasAll(['name', 'email', 'source', 'createdAt'])
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 300
+        && d.email is string && d.email.size() > 3 && d.email.size() <= 300 && d.email.matches('.+@.+\\..+')
+        && (!('business' in d) || (d.business is string && d.business.size() <= 300))
+        && (!('website' in d) || (d.website is string && d.website.size() <= 300))
+        && (!('whatsapp' in d) || (d.whatsapp is string && d.whatsapp.size() <= 300))
+        && (!('service' in d) || (d['service'] is string && d['service'].size() <= 300))
+        && (!('message' in d) || (d.message is string && d.message.size() <= 2000))
+        && (!('page' in d) || (d.page is string && d.page.size() <= 200))
+        && d.source is string && d.source.size() <= 40
+        && d.createdAt == request.time;
+    }
+
+    match /audit_requests/{id}      { allow create: if validRequest(request.resource.data); }
+    match /automation_requests/{id} { allow create: if validRequest(request.resource.data); }
+    match /contact_requests/{id}    { allow create: if validRequest(request.resource.data); }
+
+    match /{document=**} { allow read, write: if false; }
+  }
+}

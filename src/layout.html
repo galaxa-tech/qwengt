@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="#0B0B0B">
+{{robots}}
+<link rel="canonical" href="{{SITE_URL}}{{path}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Galaxa Tech">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{SITE_URL}}{{path}}">
+<meta property="og:image" content="{{SITE_URL}}/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/mark-sm.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v={{ASSET_V}}">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Galaxa Tech","url":"{{SITE_URL}}","logo":"{{SITE_URL}}/img/mark-dark.png","email":"{{EMAIL}}","telephone":"{{PHONE}}","slogan":"We Build. We Automate. We Market."}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="preloader" aria-hidden="true"><img src="/img/mark-sm.png" alt="" width="84" height="84"><div class="pline"><i></i></div></div>
+<script>try{if(sessionStorage.getItem('gt-seen'))document.getElementById('preloader').remove()}catch(e){}</script>
+<div id="prog"></div>
+
+<nav class="nav" id="navbar" aria-label="Main">
+  <a class="nbrand" href="/" aria-label="Galaxa Tech home">
+    <img src="/img/mark-sm.png" alt="Galaxa Tech logo" width="38" height="38">
+    <span><b>GALAXA TECH</b><em>We Build. We Automate. We Market.</em></span>
+  </a>
+  <div class="nlinks">
+    <a href="/services"{{cur_services}}>Services</a>
+    <a href="/work"{{cur_work}}>Work</a>
+    <a href="/ready-made-systems"{{cur_systems}}>Ready-made systems</a>
+    <a href="/contact"{{cur_contact}}>Contact</a>
+  </div>
+  <div class="nacts">
+    <a class="ncta" href="/free-audit">Free audit</a>
+    <button class="ncirc burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="sheetx" id="sheetX" aria-label="Close menu">✕</button>
+  <a href="/">Home</a>
+  <a href="/services">Services</a>
+  <a href="/work">Work</a>
+  <a href="/ready-made-systems">Ready-made systems</a>
+  <a href="/free-audit">Free audit</a>
+  <a href="/contact">Contact</a>
+  <p class="mono">{{EMAIL}} · {{PHONE_DISPLAY}}</p>
+</div>
+
+<a class="fab" href="{{WA_URL}}" target="_blank" rel="noopener" aria-label="Chat with Galaxa Tech on WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer>
+  <div class="fcols">
+    <div>
+      <div class="fbrand"><img src="/img/mark-sm.png" alt="" width="52" height="52"><b>GALAXA TECH</b></div>
+      <p>Galaxa Tech builds websites, apps and automation systems for businesses, and helps them grow with digital marketing and AI.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/ready-made-systems">Ready-made systems</a>
+      <a href="/free-audit">Free website audit</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div>
+      <h4>Talk to us</h4>
+      <a href="{{WA_URL}}" target="_blank" rel="noopener">WhatsApp {{PHONE_DISPLAY}}</a>
+      <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">GALAXA <i>TECH</i></div>
+  <div class="fbottom"><span>© Galaxa Tech</span><span>We Build. We Automate. We Market.</span></div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="/js/main.js?v={{ASSET_V}}" defer></script>
+</body>
+</html>

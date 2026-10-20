@@ -1,0 +1,23 @@
+<form class="form light" data-form="contact" novalidate>
+  <label>Your name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+  <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+  <label>What do you need?
+    <select name="service">
+      <option>AI Web Development</option>
+      <option>AI Digital Marketing</option>
+      <option>AI Automation</option>
+      <option>AI Digital Finance</option>
+      <option>Not sure yet</option>
+    </select>
+  </label>
+  <label>Message<textarea name="message" placeholder="Tell us a little about what you want to build or achieve"></textarea></label>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input name="company" tabindex="-1" autocomplete="off"></label></div>
+  <p class="err" role="alert"></p>
+  <button class="btn o" type="submit">Request a quote</button>
+  <p class="note">No prices are listed on our site. Every project is quoted individually. See our <a href="/privacy"><u>Privacy</u></a> page.</p>
+  <div class="ok-box" role="status">
+    <h3>Message received</h3>
+    <p>Thank you. We'll get back to you soon.</p>
+    <a class="btn w wa" href="#" target="_blank" rel="noopener">Continue on WhatsApp</a>
+  </div>
+</form>
