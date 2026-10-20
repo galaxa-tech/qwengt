@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "galaxatechweb",
+    "public": ".",
+    "ignore": ["firebase.json", ".firebaserc", "README.md", "tools/**", "**/.*", "**/node_modules/**", "img/logo-original.jpg"],
+    "headers": [
+      { "source": "**/*.@(png|jpg|jpeg|ico|svg|webp)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] },
+      { "source": "/index.html", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+    ]
+  }
+}
