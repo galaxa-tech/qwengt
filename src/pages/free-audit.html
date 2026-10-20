@@ -4,24 +4,27 @@ description: Send us your website. Within 24 hours our team will reply with a cl
 path: /free-audit
 nav: audit
 ---
-<section class="phero">
+<section class="phero" style="padding-bottom:30px">
   <p class="crumbs"><a href="/">Home</a> / Free website audit</p>
-  <h1 class="display">Free website audit</h1>
+  <span class="kick" style="margin-top:14px"><i></i>Free</span>
+  <h1 class="display rvw" style="max-width:none">Free website<br><span class="o">audit.</span></h1>
   <p class="lead">Send us your website. Within 24 hours our team will reply with a clear review of your site: what's working, what's holding it back, where it can improve, and the opportunities to grow.</p>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="split">
-    <div class="rv">{{form_audit}}</div>
-    <div class="rv">
-      <h2 class="display">What you'll get</h2>
-      <ul class="ticks" style="margin-top:14px">
-        <li>What's working on your site</li>
-        <li>What's holding it back</li>
-        <li>Where it can improve</li>
-        <li>The opportunities to grow</li>
+<section class="sec" style="padding-top:20px">
+  <div class="aud-page">
+    <div class="aud-vis rv">
+      {{scanner}}
+      <ul class="steps4" style="margin-top:46px">
+        <li><b>01</b>What's working</li>
+        <li><b>02</b>What's holding it back</li>
+        <li><b>03</b>Where it can improve</li>
+        <li><b>04</b>Opportunities to grow</li>
       </ul>
-      <p class="lead" style="margin-top:20px">Prefer WhatsApp? Message us at <a href="{{WA_URL}}" target="_blank" rel="noopener"><u>{{PHONE_DISPLAY}}</u></a>.</p>
+    </div>
+    <div class="rv" id="form">
+      {{form_audit}}
+      <p class="lead" style="margin-top:18px">Prefer WhatsApp? Message us at <a href="{{WA_URL}}" target="_blank" rel="noopener"><u>{{PHONE_DISPLAY}}</u></a>.</p>
     </div>
   </div>
 </section>

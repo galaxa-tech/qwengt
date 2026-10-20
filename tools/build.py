@@ -27,21 +27,40 @@ def fill(s, mapping):
 
 # --- reset dist, copy assets
 shutil.rmtree(DIST, ignore_errors=True)
-for d in ("css", "js"):
-    shutil.copytree(os.path.join(SRC, d), os.path.join(DIST, d))
+def minify_css(t):
+    t = re.sub(r"/\*.*?\*/", "", t, flags=re.S)
+    t = re.sub(r"\s+", " ", t)
+    t = re.sub(r"\s*([{};,>])\s*", r"\1", t)
+    t = re.sub(r":\s+", ":", t)
+    return t.replace(";}", "}").strip()
+
+os.makedirs(os.path.join(DIST, "css"), exist_ok=True)
+write(os.path.join(DIST, "css", "site.css"), minify_css(read(os.path.join(SRC, "css/main.css")) + "\n" + read(os.path.join(SRC, "css/scenes.css"))))
+shutil.copytree(os.path.join(SRC, "js"), os.path.join(DIST, "js"))
 shutil.copytree(os.path.join(ROOT, "img"), os.path.join(DIST, "img"), ignore=shutil.ignore_patterns("logo-original.jpg"))
-asset_v = hashlib.sha1((read(os.path.join(SRC, "css/main.css")) + read(os.path.join(SRC, "js/main.js"))).encode()).hexdigest()[:8]
+shutil.copytree(os.path.join(ROOT, "fonts"), os.path.join(DIST, "fonts"))
+asset_v = hashlib.sha1("".join(read(os.path.join(SRC, f)) for f in ("css/main.css", "css/scenes.css", "js/main.js", "js/fx.js", "js/hero3d.js")).encode()).hexdigest()[:8]
 
 # --- partials and data
-partials = {"form_" + n[5:-5]: read(os.path.join(SRC, "partials", n)) for n in os.listdir(os.path.join(SRC, "partials"))}
+partials = {n[:-5].replace("-", "_"): read(os.path.join(SRC, "partials", n)) for n in os.listdir(os.path.join(SRC, "partials"))}
+for _ in range(3):  # partials may contain other partials
+    partials = {k: fill(v, {kk: vv for kk, vv in partials.items() if kk != k}) for k, v in partials.items()}
 work = json.load(open(os.path.join(SRC, "data/work.json"), encoding="utf-8"))["items"]
 
 def work_html():
     out = []
     for w in work:
-        lap = f'<img src="/img/work/{html.escape(w["laptop"])}" alt="{html.escape(w["title"])} on a laptop" loading="lazy">' if w.get("laptop") else "Mockup<br>coming soon"
-        ph = f'<img src="/img/work/{html.escape(w["phone"])}" alt="{html.escape(w["title"])} on a phone" loading="lazy">' if w.get("phone") else "<span></span>"
-        out.append(f'    <article class="work rv" data-type="{html.escape(w["type"])}"><div class="dev"><div class="laptop">{lap}</div><div class="phone">{ph}</div></div><div><span class="soon" style="background:var(--black)">{html.escape(w["type"])}</span><h3>{html.escape(w["title"])}</h3></div></article>')
+        t = html.escape(w["title"])
+        if w.get("laptop"):
+            lap = f'<div class="laptop"><img src="/img/work/{html.escape(w["laptop"])}" alt="{t} on a laptop" loading="lazy"></div>'
+        else:
+            lap = '<div class="laptop ui">' + partials["sample_" + w["sample"]] + "</div>"
+        if w.get("phone"):
+            ph = f'<div class="phone"><img src="/img/work/{html.escape(w["phone"])}" alt="{t} on a phone" loading="lazy"></div>'
+        else:
+            ph = '<div class="phone ui">' + partials["phone_generic"] + "</div>"
+        tag = "Illustrative sample" if not w.get("laptop") else "Project"
+        out.append(f'    <article class="work rv" data-type="{html.escape(w["type"])}"><div class="dev">{lap}{ph}</div><div><span class="soon">{html.escape(w["type"])}</span><h3>{t}</h3><p class="samp-note">{tag}</p></div></article>')
     return "\n".join(out)
 
 layout = read(os.path.join(SRC, "layout.html"))

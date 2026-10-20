@@ -20,11 +20,6 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* Preloader: first visit of a session only */
-  var pre = $('#preloader');
-  function hidePre() { if (!pre) return; pre.classList.add('done'); try { sessionStorage.setItem('gt-seen', '1'); } catch (e) {} }
-  if (pre) { window.addEventListener('load', function () { setTimeout(hidePre, 700); }); setTimeout(hidePre, 3000); }
-
   /* Nav, progress bar */
   var nav = $('#navbar'), prog = $('#prog');
   function onScroll() {
@@ -130,6 +125,13 @@
       });
     });
   });
+
+  /* Prefill the audit form from ?site=... (hero mini form) */
+  try {
+    var qs = new URLSearchParams(location.search).get('site');
+    var wf = document.querySelector('form[data-form=audit] input[name=website]');
+    if (qs && wf) { wf.value = /^https?:\/\//i.test(qs) ? qs : 'https://' + qs; }
+  } catch (e) {}
 
   window.GT = { toast: toast };
 })();

@@ -1,7 +1,12 @@
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/anton-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/fonts/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500 600;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format('woff2')}
+@font-face{font-family:'Anton Fallback';src:local('Impact'),local('Arial Narrow Bold'),local('Arial');size-adjust:88%;ascent-override:105%;descent-override:28%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107%;ascent-override:90%;descent-override:22%;line-gap-override:0%}
 /* Galaxa Tech design system: black / beige / orange. Mobile-first. */
 :root{--black:#0B0B0B;--sand:#F2ECE6;--orange:#FF4D06;--bone:#E5DDD4;--hair:#C9C1B8;--ink80:#2A2A2A;--hairdk:#3A3A3A;
 --mut-d:rgba(242,236,230,.72);--mut-l:rgba(11,11,11,.66);--glass:rgba(255,255,255,.55);
---anton:'Anton',Impact,'Arial Narrow',sans-serif;--inter:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+--anton:'Anton','Anton Fallback',Impact,sans-serif;--inter:'Inter','Inter Fallback',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
 --r:24px;--pill:999px;--ease:cubic-bezier(.2,.7,.2,1);--gut:clamp(16px,4vw,56px)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}

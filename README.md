@@ -8,8 +8,10 @@ Static website for Galaxa Tech. One HTML file per page, built from `src/`.
 ## Folders
 - `src/pages/` one file per page (text lives here)
 - `src/layout.html` shared menu, footer and page frame
-- `src/partials/` the three forms (free audit, AI automation, contact)
-- `src/css/main.css`, `src/js/main.js` styles and behaviour
+- `src/partials/` the three forms, the four service scenes, the audit scanner and the illustrative sample interfaces
+- `src/css/main.css` (base) and `src/css/scenes.css` (hero, service scenes) are merged and minified into one file by the build
+- `src/js/main.js` (menu, forms), `src/js/fx.js` (animations, globe), `src/js/hero3d.js` (3D hero, desktop only)
+- `fonts/` self-hosted fonts (run `python tools/fetch_fonts.py` to re-download)
 - `src/data/work.json` the Work page gallery (see below)
 - `img/` logo files and images (`img/logo-original.jpg` is the master logo and is never published or redrawn)
 - `firestore.rules` who can write form requests (create-only)

@@ -1,10 +1,40 @@
 {
-  "_howto": "To add a project: put its screenshots in the folder img/work/ (for example img/work/ecommerce-laptop.jpg and img/work/ecommerce-phone.jpg), then set 'laptop' and 'phone' below to those file names. Leave a field as null to keep the 'Mockup coming soon' frame. 'type' must be one of: Website, Mobile app, System. Label projects by type only: never client names. After editing, ask Claude to rebuild and deploy.",
+  "_howto": "To add a real project: put its screenshots in img/work/ and set 'laptop' and 'phone' to the file names. While they are null, an 'Illustrative sample' design is shown (not real client work). Label by type only: never client names, links or logos. 'type' must be Website, Mobile app or System. Then ask Claude to rebuild and deploy.",
   "items": [
-    { "title": "E-commerce website", "type": "Website", "laptop": null, "phone": null },
-    { "title": "Reservation website", "type": "Website", "laptop": null, "phone": null },
-    { "title": "Portfolio website", "type": "Website", "laptop": null, "phone": null },
-    { "title": "Flutter mobile app", "type": "Mobile app", "laptop": null, "phone": null },
-    { "title": "Hostel management system", "type": "System", "laptop": null, "phone": null }
+    {
+      "title": "E-commerce website",
+      "type": "Website",
+      "laptop": null,
+      "phone": null,
+      "sample": "ecommerce"
+    },
+    {
+      "title": "Reservation website",
+      "type": "Website",
+      "laptop": null,
+      "phone": null,
+      "sample": "reservation"
+    },
+    {
+      "title": "Portfolio website",
+      "type": "Website",
+      "laptop": null,
+      "phone": null,
+      "sample": "portfolio"
+    },
+    {
+      "title": "Flutter mobile app",
+      "type": "Mobile app",
+      "laptop": null,
+      "phone": null,
+      "sample": "app"
+    },
+    {
+      "title": "Hostel management system",
+      "type": "System",
+      "laptop": null,
+      "phone": null,
+      "sample": "system"
+    }
   ]
 }
