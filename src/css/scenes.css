@@ -308,3 +308,16 @@ body.fine .cglow{opacity:1}
 .sc-body{grid-template-areas:"n n n" "h h h" "a b c" "f f f"}
 .sb.nav{grid-area:n}.sb.hero{grid-area:h}.sb.c1{grid-area:a}.sb.c2{grid-area:b}.sb.c3{grid-area:c}.sb.foot{grid-area:f}
 @media(max-width:600px){.orbit.o1{inset:23%}.orbit.o2{inset:8%}.funnel{width:46%}.orbit>span b{font-size:12px;padding:8px 10px}.hchip{font-size:12px}}
+@media(max-width:600px){.orbit.o2>span{display:none}.orbit.o1{inset:10%}.mkt-scene{margin-top:10px}.funnel{width:50%}}
+
+/* Automation: vertical stepper for small screens (diagram text would be too small) */
+.auto-steps{display:none;list-style:none;padding:8px 4px 4px;counter-reset:st}
+.auto-steps li{position:relative;counter-increment:st;display:flex;align-items:center;gap:12px;padding:14px 16px;margin-bottom:20px;border-radius:16px;font:600 16px var(--inter);background:var(--bone);border:1.5px dashed rgba(11,11,11,.3);transition:transform .8s var(--ease),background .6s,color .6s,border-color .6s}
+.auto-steps li::before{content:counter(st);width:28px;height:28px;flex:0 0 28px;border-radius:50%;display:grid;place-items:center;background:#fff;font:700 13px var(--inter);transition:.6s}
+.auto-steps li:not(:last-child)::after{content:"";position:absolute;left:30px;top:100%;height:20px;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease) .4s}
+.manual .auto-steps li:nth-child(odd){transform:translateX(-8px) rotate(-1.5deg)}
+.manual .auto-steps li:nth-child(even){transform:translateX(10px) rotate(1.8deg)}
+.auto-scene:not(.manual) .auto-steps li{background:var(--black);color:var(--sand);border:1.5px solid var(--black)}
+.auto-scene:not(.manual) .auto-steps li::before{background:var(--orange);color:var(--black)}
+.auto-scene:not(.manual) .auto-steps li:not(:last-child)::after{transform:scaleY(1)}
+@media(max-width:600px){.auto-scene svg{display:none}.auto-steps{display:block}.auto-scene .sc-note{position:static;margin-top:6px;text-align:center}}
